@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "174493797050",
+    "project_id": "veidi-customer",
+    "storage_bucket": "veidi-customer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174493797050:android:3a199e7f1f9ce33a47d083",
+        "android_client_info": {
+          "package_name": "pt.veidi.customer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "174493797050-uol8atu66pi0fr7kvrgg3dn24fobcduf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pt.veidi.customer",
+            "certificate_hash": "567f60a20d96d4f72fdc2ecfbb97daa2179cf011"
+          }
+        },
+        {
+          "client_id": "174493797050-csoriga1o4qnc8g19rcvebnmphaen0ql.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkkZAAFNOlmqQJDcIDL2Xb_EDcirPcOPM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "174493797050-csoriga1o4qnc8g19rcvebnmphaen0ql.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

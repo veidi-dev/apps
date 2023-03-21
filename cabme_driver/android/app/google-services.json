@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "379174563299",
+    "project_id": "veidi-69e6a",
+    "storage_bucket": "veidi-69e6a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:379174563299:android:7d130ea011f2ce9c68c4d6",
+        "android_client_info": {
+          "package_name": "pt.veidi.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "379174563299-e7up1mki20vh9b5j54eafm03cuu38pj5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArSGMga-Wv2ZqW-F32xKhu2-x15daLrSk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "379174563299-e7up1mki20vh9b5j54eafm03cuu38pj5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
