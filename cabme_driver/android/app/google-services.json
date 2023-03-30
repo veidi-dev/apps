@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "379174563299-f5s77pnl80u8qkpd7dhno0po2qa0r1a7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pt.veidi.driver",
+            "certificate_hash": "af049b56d2b96279aed1a8e99ca65ab5f55f6147"
+          }
+        },
+        {
           "client_id": "379174563299-e7up1mki20vh9b5j54eafm03cuu38pj5.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -74,6 +74,6 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="Replace your Map key" />
+            android:value="AIzaSyDkb2OEUJK6sP4ONHtoHzvREY8uUIwjdoE" />
     </application>
 </manifest>

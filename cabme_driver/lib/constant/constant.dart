@@ -19,7 +19,7 @@ import 'package:video_thumbnail/video_thumbnail.dart';
 import 'show_toast_dialog.dart';
 
 class Constant {
-  static String? kGoogleApiKey = "AIzaSyChzihqgJtOeuc5Jh1Pg8hsABVnEURBtTE";
+  static String? kGoogleApiKey = "AIzaSyDkb2OEUJK6sP4ONHtoHzvREY8uUIwjdoE";
   static String? rideOtp = "yes";
   static String? appVersion = "0.0";
   static String? decimal = "2";
