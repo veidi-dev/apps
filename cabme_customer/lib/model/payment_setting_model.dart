@@ -125,7 +125,7 @@ class Strip {
     secretKey = json['secret_key'];
     isEnabled = json['isEnabled'];
     isSandboxEnabled = json['isSandboxEnabled'];
-    //idPaymentMethod = json['id_payment_method'];
+    idPaymentMethod = json['id_payment_method'];
     libelle = json['libelle'];
   }
 
@@ -137,7 +137,7 @@ class Strip {
     data['secret_key'] = secretKey;
     data['isEnabled'] = isEnabled;
     data['isSandboxEnabled'] = isSandboxEnabled;
-    //data['id_payment_method'] = idPaymentMethod;
+    data['id_payment_method'] = idPaymentMethod;
     data['libelle'] = libelle;
     return data;
   }
@@ -155,7 +155,7 @@ class Cash {
     id = json['id'];
     isEnabled = json['isEnabled'];
     libelle = json['libelle'];
-    //idPaymentMethod = json['id_payment_method'];
+    idPaymentMethod = json['id_payment_method'];
   }
 
   Map<String, dynamic> toJson() {
@@ -163,7 +163,7 @@ class Cash {
     data['id'] = id;
     data['isEnabled'] = isEnabled;
     data['libelle'] = libelle;
-    // data['id_payment_method'] = idPaymentMethod;
+   data['id_payment_method'] = idPaymentMethod;
     return data;
   }
 }
@@ -201,7 +201,7 @@ class PayFast {
     returnUrl = json['return_url'];
     isEnabled = json['isEnabled'];
     isSandboxEnabled = json['isSandboxEnabled'];
-    //  idPaymentMethod = json['id_payment_method'];
+    idPaymentMethod = json['id_payment_method'];
     libelle = json['libelle'];
   }
 
@@ -215,7 +215,7 @@ class PayFast {
     data['return_url'] = returnUrl;
     data['isEnabled'] = isEnabled;
     data['isSandboxEnabled'] = isSandboxEnabled;
-    //  data['id_payment_method'] = idPaymentMethod;
+      data['id_payment_method'] = idPaymentMethod;
     data['libelle'] = libelle;
     return data;
   }
@@ -248,7 +248,7 @@ class PayStack {
     callbackUrl = json['callback_url'];
     isEnabled = json['isEnabled'];
     isSandboxEnabled = json['isSandboxEnabled'];
-    //idPaymentMethod = json['id_payment_method'];
+    idPaymentMethod = json['id_payment_method'];
     libelle = json['libelle'];
   }
 
@@ -260,7 +260,7 @@ class PayStack {
     data['callback_url'] = callbackUrl;
     data['isEnabled'] = isEnabled;
     data['isSandboxEnabled'] = isSandboxEnabled;
-    // data['id_payment_method'] = idPaymentMethod;
+     data['id_payment_method'] = idPaymentMethod;
     data['libelle'] = libelle;
     return data;
   }
@@ -293,7 +293,7 @@ class FlutterWave {
     encryptionKey = json['encryption_key'];
     isEnabled = json['isEnabled'];
     isSandboxEnabled = json['isSandboxEnabled'];
-    //  idPaymentMethod = json['id_payment_method'];
+    idPaymentMethod = json['id_payment_method'];
     libelle = json['libelle'];
   }
 
@@ -305,7 +305,7 @@ class FlutterWave {
     data['encryption_key'] = encryptionKey;
     data['isEnabled'] = isEnabled;
     data['isSandboxEnabled'] = isSandboxEnabled;
-    // data['id_payment_method'] = idPaymentMethod;
+    data['id_payment_method'] = idPaymentMethod;
     data['libelle'] = libelle;
     return data;
   }
@@ -335,7 +335,7 @@ class RazorpayModel {
     secretKey = json['secret_key'];
     isEnabled = json['isEnabled'];
     isSandboxEnabled = json['isSandboxEnabled'];
-    //  idPaymentMethod = json['id_payment_method'];
+ idPaymentMethod = json['id_payment_method'];
     libelle = json['libelle'];
   }
 
@@ -346,7 +346,7 @@ class RazorpayModel {
     data['secret_key'] = secretKey;
     data['isEnabled'] = isEnabled;
     data['isSandboxEnabled'] = isSandboxEnabled;
-    //  data['id_payment_method'] = idPaymentMethod;
+     data['id_payment_method'] = idPaymentMethod;
     data['libelle'] = libelle;
     return data;
   }
@@ -374,7 +374,7 @@ class Mercadopago {
     accesstoken = json['accesstoken'];
     isEnabled = json['isEnabled'];
     isSandboxEnabled = json['isSandboxEnabled'];
-    //  idPaymentMethod = json['id_payment_method'];
+     idPaymentMethod = json['id_payment_method'];
   }
 
   Map<String, dynamic> toJson() {
@@ -413,7 +413,7 @@ class Paytm {
     merchantKey = json['merchant_key'];
     isEnabled = json['isEnabled'];
     isSandboxEnabled = json['isSandboxEnabled'];
-    // idPaymentMethod = json['id_payment_method'];
+    idPaymentMethod = json['id_payment_method'];
     libelle = json['libelle'];
   }
 
@@ -470,7 +470,7 @@ class PayPal {
     tokenizationKey = json['tokenization_key'];
     isEnabled = json['isEnabled'];
     isLive = json['isLive'];
-    //  idPaymentMethod = json['id_payment_method'];
+     idPaymentMethod = json['id_payment_method'];
     username = json['username'];
     password = json['password'];
     libelle = json['libelle'];

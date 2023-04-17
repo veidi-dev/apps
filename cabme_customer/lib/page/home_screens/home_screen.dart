@@ -364,20 +364,23 @@ class _HomeScreenState extends State<HomeScreen> {
   getDirections() async {
     List<LatLng> polylineCoordinates = [];
 
-    PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
-      Constant.kGoogleApiKey.toString(),
-      PointLatLng(departureLatLong!.latitude, departureLatLong!.longitude),
-      PointLatLng(destinationLatLong!.latitude, destinationLatLong!.longitude),
-      travelMode: TravelMode.driving,
-    );
+    if(departureLatLong != null) {
+      PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
+        Constant.kGoogleApiKey.toString(),
+        PointLatLng(departureLatLong!.latitude, departureLatLong!.longitude),
+        PointLatLng(
+            destinationLatLong!.latitude, destinationLatLong!.longitude),
+        travelMode: TravelMode.driving,
+      );
 
-    if (result.points.isNotEmpty) {
-      for (var point in result.points) {
-        polylineCoordinates.add(LatLng(point.latitude, point.longitude));
+      if (result.points.isNotEmpty) {
+        for (var point in result.points) {
+          polylineCoordinates.add(LatLng(point.latitude, point.longitude));
+        }
       }
-    }
 
-    addPolyLine(polylineCoordinates);
+      addPolyLine(polylineCoordinates);
+    }
   }
 
   addPolyLine(List<LatLng> polylineCoordinates) {
@@ -1283,6 +1286,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 title: "Book now".tr,
                                 btnColor: ConstantColors.primary,
                                 txtColor: Colors.white, onPress: () {
+
                               if (controller.paymentMethodType.value ==
                                   "Select Method") {
                                 ShowToastDialog.showToast(
@@ -1525,6 +1529,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               value: "Cash",
                               groupValue: controller.paymentMethodType.value,
                               onChanged: (String? value) {
+
                                 controller.stripe = false.obs;
                                 controller.wallet = false.obs;
                                 controller.cash = true.obs;
@@ -1543,6 +1548,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     .idPaymentMethod
                                     .toString()
                                     .obs;
+
                                 Get.back();
                               },
                               selected: controller.cash.value,

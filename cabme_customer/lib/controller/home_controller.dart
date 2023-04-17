@@ -383,6 +383,7 @@ class HomeController extends GetxController {
       final response = await http.post(Uri.parse(API.bookRides),
           headers: API.header, body: jsonEncode(bodyParams));
 
+
       Map<String, dynamic> responseBody = json.decode(response.body);
       if (response.statusCode == 200) {
         ShowToastDialog.closeLoader();
