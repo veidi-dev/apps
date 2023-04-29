@@ -29,8 +29,8 @@ class Constant {
   static String? taxName = 'Tax';
   static String? distanceUnit = "KM";
   static String? contactUsEmail = "",
-      contactUsAddress = "",
-      contactUsPhone = "";
+      contactUsAddress = "it@veidi.pt",
+      contactUsPhone = "+351925797913";
 
   static CollectionReference conversation =
       FirebaseFirestore.instance.collection('conversation');

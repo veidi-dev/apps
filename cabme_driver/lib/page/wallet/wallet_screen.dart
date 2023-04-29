@@ -318,7 +318,7 @@ class WalletScreen extends StatelessWidget {
                                       fontWeight: FontWeight.w800),
                                 ),
                               ),
-                              Padding(
+                              /* Padding(
                                 padding: const EdgeInsets.only(top: 4),
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -344,7 +344,7 @@ class WalletScreen extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                              ),
+                              ),*/
                             ],
                           ),
                         ),

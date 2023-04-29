@@ -68,16 +68,16 @@ class DashBoardController extends GetxController {
   RxInt selectedDrawerIndex = 0.obs;
 
   final drawerItems = [
-    DrawerItem('All Rides'.tr, CupertinoIcons.car_detailed),
-    // DrawerItem('confirmed'.tr, CupertinoIcons.checkmark_circle),
-    // DrawerItem('on_ride'.tr, Icons.directions_boat_outlined),
-    // DrawerItem('completed'.tr, Icons.incomplete_circle_outlined),
-    // DrawerItem('canceled'.tr, Icons.cancel_outlined),
-    DrawerItem('Documents'.tr, Icons.domain_verification),
+    DrawerItem('all_rides'.tr, CupertinoIcons.car_detailed),
+    //DrawerItem('confirmed'.tr, CupertinoIcons.checkmark_circle),
+    //DrawerItem('on_ride'.tr, Icons.directions_boat_outlined),
+    //DrawerItem('completed'.tr, Icons.incomplete_circle_outlined),
+    //DrawerItem('canceled'.tr, Icons.cancel_outlined),
+    DrawerItem('documents'.tr, Icons.domain_verification),
     DrawerItem('my_profile'.tr, Icons.person_outline),
-    DrawerItem('Car Service History'.tr, Icons.miscellaneous_services),
-    DrawerItem('My Earnings'.tr, Icons.account_balance_wallet_outlined),
-    DrawerItem('Add Bank'.tr, Icons.account_balance),
+    // DrawerItem('Car Service History'.tr, Icons.miscellaneous_services),
+    DrawerItem('my_earnings'.tr, Icons.account_balance_wallet_outlined),
+    DrawerItem('add_bank'.tr, Icons.account_balance),
     DrawerItem('change_language'.tr, Icons.language),
     DrawerItem('contact_us'.tr, Icons.rate_review_outlined),
     DrawerItem('term_service'.tr, Icons.design_services),
@@ -171,19 +171,19 @@ class DashBoardController extends GetxController {
         return DocumentStatusScreen();
       case 2:
         return MyProfileScreen();
+      //case 3:
+      //return const CarServiceBookHistory();
       case 3:
-        return const CarServiceBookHistory();
-      case 4:
         return WalletScreen();
-      case 5:
+      case 4:
         return const ShowBankDetails();
-      case 6:
+      case 5:
         return const LocalizationScreens(intentType: "dashBoard");
-      case 7:
+      case 6:
         return const ContactUsScreen();
-      case 8:
+      case 7:
         return const TermsOfServiceScreen();
-      case 9:
+      case 8:
         return const PrivacyPolicyScreen();
       default:
         return const Text("Error");

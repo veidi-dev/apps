@@ -17,11 +17,11 @@ class AddBankAccount extends StatelessWidget {
   static final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   var bankNameController = TextEditingController();
-  var branchNameController = TextEditingController();
+  //var branchNameController = TextEditingController();
   var holderNameController = TextEditingController();
   var accountNumberController = TextEditingController();
-  var otherInformationController = TextEditingController();
-  var ifscCodeController = TextEditingController();
+  //var otherInformationController = TextEditingController();
+  //var ifscCodeController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,16 +30,16 @@ class AddBankAccount extends StatelessWidget {
       initState: (state) {
         bankNameController = TextEditingController(
             text: state.controller!.bankDetails.value.bankName);
-        branchNameController = TextEditingController(
-            text: state.controller!.bankDetails.value.branchName);
+        // branchNameController = TextEditingController(
+        //   text: state.controller!.bankDetails.value.branchName);
         holderNameController = TextEditingController(
             text: state.controller!.bankDetails.value.holderName);
         accountNumberController = TextEditingController(
             text: state.controller!.bankDetails.value.accountNo);
-        otherInformationController = TextEditingController(
-            text: state.controller!.bankDetails.value.otherInfo);
-        ifscCodeController = TextEditingController(
-            text: state.controller!.bankDetails.value.ifscCode);
+        // otherInformationController = TextEditingController(
+        //   text: state.controller!.bankDetails.value.otherInfo);
+        // ifscCodeController = TextEditingController(
+        //   text: state.controller!.bankDetails.value.ifscCode);
       },
       builder: (controller) {
         return Scaffold(
@@ -109,7 +109,7 @@ class AddBankAccount extends StatelessWidget {
                                   contentPadding: EdgeInsets.all(8)),
                             ),
                           ),
-                          Padding(
+                          /* Padding(
                             padding: const EdgeInsets.only(top: 18.0),
                             child: Text(
                               'Branch Name',
@@ -149,7 +149,7 @@ class AddBankAccount extends StatelessWidget {
                                   ),
                                   contentPadding: EdgeInsets.all(8)),
                             ),
-                          ),
+                          ),*/
                           Padding(
                             padding: const EdgeInsets.only(top: 18.0),
                             child: Text(
@@ -194,7 +194,7 @@ class AddBankAccount extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(top: 18.0),
                             child: Text(
-                              'Account Number',
+                              'Account Number (IBAN)',
                               style: TextStyle(
                                   color: Colors.black.withOpacity(0.50),
                                   fontWeight: FontWeight.w500),
@@ -232,7 +232,7 @@ class AddBankAccount extends StatelessWidget {
                                   contentPadding: EdgeInsets.all(8)),
                             ),
                           ),
-                          Padding(
+                          /* Padding(
                             padding: const EdgeInsets.only(top: 18.0),
                             child: Text(
                               'IFSC Code',
@@ -240,8 +240,8 @@ class AddBankAccount extends StatelessWidget {
                                   color: Colors.black.withOpacity(0.50),
                                   fontWeight: FontWeight.w500),
                             ),
-                          ),
-                          Padding(
+                          ),*/
+                          /*Padding(
                             padding: const EdgeInsets.only(top: 8),
                             child: TextFormField(
                               controller: ifscCodeController,
@@ -313,7 +313,7 @@ class AddBankAccount extends StatelessWidget {
                                   ),
                                   contentPadding: EdgeInsets.all(8)),
                             ),
-                          ),
+                          ),*/
                           Center(
                             child: Padding(
                               padding: const EdgeInsets.only(top: 45),
@@ -328,12 +328,11 @@ class AddBankAccount extends StatelessWidget {
                                         Preferences.getInt(Preferences.userId)
                                             .toString(),
                                     'bank_name': bankNameController.text,
-                                    'branch_name': branchNameController.text,
+                                    'branch_name': 'NÃO PREENCHER',
                                     'holder_name': holderNameController.text,
                                     'account_no': accountNumberController.text,
-                                    'information':
-                                        otherInformationController.text,
-                                    'ifsc_code': ifscCodeController.text
+                                    'information': 'NÃO PREENCHER',
+                                    'ifsc_code': 'NÃO PREENCHER',
                                   };
 
                                   controller
@@ -343,7 +342,7 @@ class AddBankAccount extends StatelessWidget {
                                       Get.back(result: true);
                                     } else {
                                       ShowToastDialog.showToast(
-                                          "Something want wrong.");
+                                          "Something went wrong.");
                                     }
                                   });
                                 }

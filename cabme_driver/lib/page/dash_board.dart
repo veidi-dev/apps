@@ -195,7 +195,7 @@ class DashBoard extends StatelessWidget {
                   )),
           Column(children: drawerOptions),
           Text(
-            'V : ${Constant.appVersion}',
+            'v : ${Constant.appVersion}',
             textAlign: TextAlign.center,
             style: const TextStyle(fontSize: 16),
           ),

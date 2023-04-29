@@ -116,7 +116,7 @@ class ShowBankDetails extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              Padding(
+                              /*  Padding(
                                 padding:
                                     const EdgeInsets.only(left: 10, top: 20),
                                 child: Column(
@@ -156,7 +156,7 @@ class ShowBankDetails extends StatelessWidget {
                                     )
                                   ],
                                 ),
-                              ),
+                              ),*/
                               Padding(
                                 padding:
                                     const EdgeInsets.only(left: 10, top: 20),
@@ -239,7 +239,7 @@ class ShowBankDetails extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              Padding(
+                              /*Padding(
                                 padding:
                                     const EdgeInsets.only(left: 10, top: 20),
                                 child: Column(
@@ -320,7 +320,7 @@ class ShowBankDetails extends StatelessWidget {
                                     )
                                   ],
                                 ),
-                              ),
+                              ),*/
                               Padding(
                                 padding: const EdgeInsets.only(
                                     top: 20, left: 25, right: 25),
