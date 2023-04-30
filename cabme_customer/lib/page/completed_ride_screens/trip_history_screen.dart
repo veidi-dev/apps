@@ -109,7 +109,7 @@ class TripHistoryScreen extends StatelessWidget {
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Expanded(
+                                /*Expanded(
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 5.0),
                                     child: Container(
@@ -146,7 +146,7 @@ class TripHistoryScreen extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                ),
+                                ),*/
                                 Expanded(
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 5.0),
@@ -177,7 +177,8 @@ class TripHistoryScreen extends StatelessWidget {
                                             //   color: ConstantColors.yellow,
                                             // ),
                                             Text(
-                                              "${Constant.currency.toString()} ${double.parse(controller.data.value.montant.toString()).toStringAsFixed(int.parse(Constant.decimal ?? "2"))}",
+                                              "${Constant.currency.toString()} 65",
+                                              //  "${Constant.currency.toString()} ${double.parse(controller.data.value.montant.toString()).toStringAsFixed(int.parse(Constant.decimal ?? "2"))}",
                                               style: const TextStyle(
                                                 fontWeight: FontWeight.w800,
                                                 color: Colors.black54,
@@ -315,7 +316,7 @@ class TripHistoryScreen extends StatelessWidget {
                                 children: [
                                   Row(
                                     children: [
-                                      InkWell(
+                                      /*InkWell(
                                           onTap: () {
                                             Get.to(ConversationScreen(),
                                                 arguments: {
@@ -333,7 +334,7 @@ class TripHistoryScreen extends StatelessWidget {
                                             'assets/icons/chat_icon.png',
                                             height: 36,
                                             width: 36,
-                                          )),
+                                          ),),*/
                                       Padding(
                                         padding:
                                             const EdgeInsets.only(left: 10),

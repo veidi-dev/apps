@@ -59,13 +59,13 @@ class DashBoardController extends GetxController {
   final drawerItems = [
     DrawerItem('home'.tr, CupertinoIcons.home),
     DrawerItem('All Rides'.tr, Icons.local_car_wash),
-    DrawerItem('favorite_ride'.tr, CupertinoIcons.star),
+    //DrawerItem('favorite_ride'.tr, CupertinoIcons.star),
     // DrawerItem('confirmed'.tr, CupertinoIcons.checkmark_circle),
     // DrawerItem('on_ride'.tr, Icons.directions_boat_outlined),
     // DrawerItem("completed".tr, Icons.incomplete_circle),
     // DrawerItem('canceled'.tr, Icons.cancel_outlined),
-    DrawerItem('rent_a_vehicle'.tr, Icons.car_rental),
-    DrawerItem('rented_vehicle'.tr, Icons.car_rental),
+    //DrawerItem('rent_a_vehicle'.tr, Icons.car_rental),
+    //DrawerItem('rented_vehicle'.tr, Icons.car_rental),
     DrawerItem('promo_code'.tr, Icons.discount),
     DrawerItem('my_wallet'.tr, Icons.account_balance_wallet_outlined),
     DrawerItem('my_profile'.tr, Icons.person_outline),
@@ -73,7 +73,7 @@ class DashBoardController extends GetxController {
     DrawerItem('term_service'.tr, Icons.design_services),
     DrawerItem('privacy_policy'.tr, Icons.privacy_tip),
     DrawerItem('contact_us'.tr, Icons.support_agent),
-    DrawerItem('rate_business'.tr, Icons.rate_review_outlined),
+    //DrawerItem('rate_business'.tr, Icons.rate_review_outlined),
     DrawerItem('sign_out'.tr, Icons.logout),
   ];
 
@@ -83,8 +83,8 @@ class DashBoardController extends GetxController {
         return const HomeScreen();
       case 1:
         return const NewRideScreen();
-      case 2:
-        return const FavoriteRideScreen();
+      //case 2:
+      // return const FavoriteRideScreen();
 
       // case 3:
       //   return const ConfirmedRideScreen();
@@ -94,25 +94,25 @@ class DashBoardController extends GetxController {
       //   return const CompletedRideScreen();
       // case 6:
       //   return const CanceledRideScreens();
-      case 3:
-        return RentVehicleScreen();
-      case 4:
-        return const RentedVehicleScreen();
-      case 5:
+      // case 3:
+      //  return RentVehicleScreen();
+      //case 4:
+      // return const RentedVehicleScreen();
+      case 2:
         return const CouponCodeScreen();
-      case 6:
+      case 3:
         return WalletScreen();
-      case 7:
+      case 4:
         return MyProfileScreen();
-      case 8:
+      case 5:
         return const LocalizationScreens(
           intentType: "dashBoard",
         );
-      case 9:
+      case 6:
         return const TermsOfServiceScreen();
-      case 10:
+      case 7:
         return const PrivacyPolicyScreen();
-      case 11:
+      case 8:
         return const ContactUsScreen();
 
       default:
@@ -120,6 +120,7 @@ class DashBoardController extends GetxController {
     }
   }
 
+// Dar rate na aplicação
   onSelectItem(int index) {
     if (index == 12) {
       LaunchReview.launch(

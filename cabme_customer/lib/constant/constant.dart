@@ -34,8 +34,8 @@ class Constant {
   static String? taxType = 'Percentage';
   static String? taxName = 'Tax';
   static String? contactUsEmail = "",
-      contactUsAddress = "",
-      contactUsPhone = "";
+      contactUsAddress = "it@veidi.pt",
+      contactUsPhone = "+351925797913";
   static String? rideOtp = "yes";
 
   static String stripePublishablekey = "Replace your public strip key";

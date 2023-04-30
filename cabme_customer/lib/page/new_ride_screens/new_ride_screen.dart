@@ -155,7 +155,7 @@ class NewRideScreen extends StatelessWidget {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Expanded(
+                            /* Expanded(
                               child: Padding(
                                 padding: const EdgeInsets.only(left: 5.0),
                                 child: Container(
@@ -186,7 +186,7 @@ class NewRideScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                            ),
+                            ),*/
                             Expanded(
                               child: Padding(
                                 padding: const EdgeInsets.only(left: 5.0),
@@ -217,7 +217,8 @@ class NewRideScreen extends StatelessWidget {
                                         //   color: ConstantColors.yellow,
                                         // ),
                                         Text(
-                                          "${Constant.currency.toString()} ${double.parse(data.montant.toString()).toStringAsFixed(int.parse(Constant.decimal ?? "2"))}",
+                                          "${Constant.currency.toString()} 65",
+                                          //"${Constant.currency.toString()} ${double.parse(data.montant.toString()).toStringAsFixed(int.parse(Constant.decimal ?? "2"))}",
                                           style: const TextStyle(
                                             fontWeight: FontWeight.w800,
                                             color: Colors.black54,

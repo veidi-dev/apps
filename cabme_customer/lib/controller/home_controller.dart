@@ -34,7 +34,7 @@ class HomeController extends GetxController {
   late VehicleData? vehicleData;
   late PaymentMethodData? paymentMethodData;
 
-  RxString tripOptionCategory = "General".obs;
+  RxString tripOptionCategory = "Express".obs;
   RxString paymentMethodType = "Select Method".obs;
   RxString paymentMethodId = "".obs;
   RxDouble distance = 0.0.obs;
@@ -63,7 +63,7 @@ class HomeController extends GetxController {
   clearData() {
     selectedVehicle.value = "";
     selectPaymentMode.value = "Payment Method";
-    tripOptionCategory = "General".obs;
+    tripOptionCategory = "Express".obs;
     paymentMethodType = "Select Method".obs;
     paymentMethodId = "".obs;
     distance = 0.0.obs;
@@ -382,7 +382,6 @@ class HomeController extends GetxController {
       ShowToastDialog.showLoader("Please wait");
       final response = await http.post(Uri.parse(API.bookRides),
           headers: API.header, body: jsonEncode(bodyParams));
-
 
       Map<String, dynamic> responseBody = json.decode(response.body);
       if (response.statusCode == 200) {

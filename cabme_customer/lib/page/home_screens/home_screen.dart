@@ -26,10 +26,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final CameraPosition _kInitialPosition = const CameraPosition(
-      target: LatLng(19.018255973653343, 72.84793849278007),
-      zoom: 11.0,
-      tilt: 0,
-      bearing: 0);
+      target: LatLng(38.736946, -9.142685), zoom: 12.0, tilt: 0, bearing: 0);
 
   final TextEditingController departureController = TextEditingController();
   final TextEditingController destinationController = TextEditingController();
@@ -248,7 +245,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               });
                                             },
                                             child: buildTextField(
-                                              title: "Departure",
+                                              title: "Recolha",
                                               textController:
                                                   departureController,
                                             ),
@@ -285,7 +282,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         });
                                       },
                                       child: buildTextField(
-                                        title: "Where do you want to go ?",
+                                        title: "Qual o destino do transporte?",
                                         textController: destinationController,
                                       ),
                                     ),
@@ -364,7 +361,7 @@ class _HomeScreenState extends State<HomeScreen> {
   getDirections() async {
     List<LatLng> polylineCoordinates = [];
 
-    if(departureLatLong != null) {
+    if (departureLatLong != null) {
       PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
         Constant.kGoogleApiKey.toString(),
         PointLatLng(departureLatLong!.latitude, departureLatLong!.longitude),
@@ -419,7 +416,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         iconColor: Colors.black,
                         btnHeight: 40,
                         btnWidthRatio: 0.25,
-                        title: "Back",
+                        title: "Voltar",
                         btnColor: ConstantColors.yellow,
                         txtColor: Colors.black, onPress: () {
                       Get.back();
@@ -428,7 +425,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Expanded(
                     child: ButtonThem.buildButton(context,
                         btnHeight: 40,
-                        title: "Continue".tr,
+                        title: "Continuar".tr,
                         btnColor: ConstantColors.primary,
                         txtColor: Colors.white, onPress: () async {
                       await controller
@@ -527,7 +524,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         const Padding(
                           padding: EdgeInsets.symmetric(vertical: 10),
                           child: Text(
-                            "Trip option",
+                            "Opções de Transporte",
                             style: TextStyle(fontSize: 18, color: Colors.black),
                           ),
                         ),
@@ -543,9 +540,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   const EdgeInsets.symmetric(horizontal: 10),
                               child: DropdownButton<String>(
                                 items: <String>[
-                                  'General',
-                                  'Business',
-                                  'Executive',
+                                  'Express',
                                 ].map<DropdownMenuItem<String>>((String value) {
                                   return DropdownMenuItem<String>(
                                     value: value,
@@ -564,7 +559,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                         ),
-                        Padding(
+                        /* Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: TextField(
                             controller: passengerController,
@@ -638,7 +633,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ],
                             ),
                           ),
-                        ),
+                        ),*/
                         Padding(
                           padding: const EdgeInsets.only(top: 10),
                           child: Row(
@@ -652,7 +647,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     iconColor: Colors.black,
                                     btnHeight: 40,
                                     btnWidthRatio: 0.25,
-                                    title: "Back",
+                                    title: "Voltar",
                                     btnColor: ConstantColors.yellow,
                                     txtColor: Colors.black, onPress: () {
                                   Get.back();
@@ -661,13 +656,14 @@ class _HomeScreenState extends State<HomeScreen> {
                               Expanded(
                                 child: ButtonThem.buildButton(context,
                                     btnHeight: 40,
-                                    title: "Book Now".tr,
+                                    title: "Pedir Agora".tr,
                                     btnColor: ConstantColors.primary,
                                     txtColor: Colors.white, onPress: () async {
-                                  if (passengerController.text.isEmpty) {
+                                  /*if (passengerController.text.isEmpty) {
                                     ShowToastDialog.showToast(
                                         "Please Enter Passenger");
-                                  } else {
+                                  } else */
+                                  {
                                     await controller
                                         .getVehicleCategory()
                                         .then((value) {
@@ -757,7 +753,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     const Padding(
                       padding: EdgeInsets.symmetric(vertical: 10),
                       child: Text(
-                        "Choose Your Vehicle Type",
+                        "Escolha o veículo que precisa",
                         style: TextStyle(fontSize: 18, color: Colors.black),
                       ),
                     ),
@@ -773,7 +769,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   height: 24, width: 24),
                               const Padding(
                                 padding: EdgeInsets.only(left: 10),
-                                child: Text("Distance",
+                                child: Text("Distância",
                                     style: TextStyle(fontSize: 16)),
                               )
                             ],
@@ -936,7 +932,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 iconColor: Colors.black,
                                 btnHeight: 40,
                                 btnWidthRatio: 0.25,
-                                title: "Back",
+                                title: "Voltar",
                                 btnColor: ConstantColors.yellow,
                                 txtColor: Colors.black, onPress: () {
                               Get.back();
@@ -946,7 +942,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Expanded(
                             child: ButtonThem.buildButton(context,
                                 btnHeight: 40,
-                                title: "Book Now".tr,
+                                title: "Pedir Agora".tr,
                                 btnColor: ConstantColors.primary,
                                 txtColor: Colors.white, onPress: () async {
                               if (controller.selectedVehicle.value.isNotEmpty) {
@@ -1099,7 +1095,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Padding(
                                   padding: const EdgeInsets.only(top: 3),
                                   child: Text(
-                                    "Total trips ${driverModel.data![0].totalCompletedRide.toString()}",
+                                    "${driverModel.data![0].totalCompletedRide.toString()} Transportes",
                                     style: TextStyle(
                                       color: ConstantColors.subTitleTextColor,
                                     ),
@@ -1108,7 +1104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ],
                             ),
                           ),
-                          Column(
+                          /*Column(
                             children: [
                               InkWell(
                                 onTap: () {
@@ -1142,7 +1138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     )),
                               ),
                             ],
-                          )
+                          )*/
                         ],
                       ),
                       Padding(
@@ -1158,7 +1154,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 },
                                 child: buildDetails(
                                     title: controller.paymentMethodType.value,
-                                    value: 'Payment'),
+                                    value: 'Pagamento'),
                               ),
                             ),
                             const SizedBox(
@@ -1167,15 +1163,15 @@ class _HomeScreenState extends State<HomeScreen> {
                             Expanded(
                                 child: buildDetails(
                                     title: controller.duration.value,
-                                    value: 'Duration')),
+                                    value: 'Duração Estimada')),
                             const SizedBox(
                               width: 10,
                             ),
                             Expanded(
                                 child: buildDetails(
-                                    title:
-                                        "${Constant.currency.toString()} ${tripPrice.toStringAsFixed(int.parse(Constant.decimal ?? "2"))}",
-                                    value: 'Trip Price',
+                                    title: "${Constant.currency.toString()} 65",
+                                    //"${Constant.currency.toString()} ${tripPrice.toStringAsFixed(int.parse(Constant.decimal ?? "2"))}",
+                                    value: 'Preço do Transporte',
                                     txtColor: ConstantColors.primary)),
                           ],
                         ),
@@ -1189,7 +1185,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           const Opacity(
                             opacity: 0.6,
                             child: Text(
-                              "Cab Details:",
+                              "Carrinha:",
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.w500),
                             ),
@@ -1233,7 +1229,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 iconColor: Colors.black,
                                 btnHeight: 40,
                                 btnWidthRatio: 0.25,
-                                title: "Back",
+                                title: "Voltar",
                                 btnColor: ConstantColors.yellow,
                                 txtColor: Colors.black, onPress: () async {
                               await controller
@@ -1286,7 +1282,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                 title: "Book now".tr,
                                 btnColor: ConstantColors.primary,
                                 txtColor: Colors.white, onPress: () {
-
                               if (controller.paymentMethodType.value ==
                                   "Select Method") {
                                 ShowToastDialog.showToast(
@@ -1499,11 +1494,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Text("Select Payment Method1"),
+                      const Text("Selecionar Método de Pagamento"),
                       Divider(
                         color: Colors.grey.shade700,
                       ),
-                      Visibility(
+                      /*Visibility(
                         visible:
                             controller.paymentSettingModel.value.cash != null &&
                                     controller.paymentSettingModel.value.cash!
@@ -1529,7 +1524,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               value: "Cash",
                               groupValue: controller.paymentMethodType.value,
                               onChanged: (String? value) {
-
                                 controller.stripe = false.obs;
                                 controller.wallet = false.obs;
                                 controller.cash = true.obs;
@@ -1588,7 +1582,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                         ),
-                      ),
+                      ),*/
                       Visibility(
                         visible:
                             controller.paymentSettingModel.value.myWallet !=
@@ -1613,7 +1607,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ? ConstantColors.primary
                                           : Colors.transparent)),
                               controlAffinity: ListTileControlAffinity.trailing,
-                              value: "Wallet",
+                              value: "Carteira",
                               groupValue: controller.paymentMethodType.value,
                               onChanged: (String? value) {
                                 controller.stripe = false.obs;
@@ -1666,7 +1660,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   const SizedBox(
                                     width: 20,
                                   ),
-                                  const Text("Wallet"),
+                                  const Text("Carteira"),
                                 ],
                               ),
                               //toggleable: true,
@@ -1697,7 +1691,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ? ConstantColors.primary
                                           : Colors.transparent)),
                               controlAffinity: ListTileControlAffinity.trailing,
-                              value: "Stripe",
+                              value: "Associar cartão",
                               groupValue: controller.paymentMethodType.value,
                               onChanged: (String? value) {
                                 controller.stripe = true.obs;
@@ -1750,7 +1744,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   const SizedBox(
                                     width: 20,
                                   ),
-                                  const Text("Stripe"),
+                                  const Text("Associar Cartão"),
                                 ],
                               ),
                               //toggleable: true,
