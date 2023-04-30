@@ -293,7 +293,7 @@ class ConfirmedScreen extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          InkWell(
+                          /*InkWell(
                               onTap: () {
                                 Get.to(ConversationScreen(), arguments: {
                                   'receiverId': data.idUserApp,
@@ -306,7 +306,7 @@ class ConfirmedScreen extends StatelessWidget {
                                 'assets/icons/chat_icon.png',
                                 height: 36,
                                 width: 36,
-                              )),
+                              ),),*/
                           Padding(
                             padding: const EdgeInsets.only(left: 10),
                             child: InkWell(
