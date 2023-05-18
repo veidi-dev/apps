@@ -60,7 +60,7 @@ class _MercadoPagoScreenState extends State<MercadoPagoScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
-            title: const Text("Payment"),
+            title: const Text("Pagamento"),
             centerTitle: false,
             leading: GestureDetector(
               onTap: () {
@@ -82,14 +82,14 @@ class _MercadoPagoScreenState extends State<MercadoPagoScreen> {
       barrierDismissible: true, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Cancel Payment'),
+          title: const Text('Cancelar Pagamento'),
           content: const SingleChildScrollView(
-            child: Text("cancelPayment?"),
+            child: Text("CancelarPagamento?"),
           ),
           actions: <Widget>[
             TextButton(
               child: const Text(
-                'Cancel',
+                'Cancelar',
                 style: TextStyle(color: Colors.red),
               ),
               onPressed: () {
@@ -99,7 +99,7 @@ class _MercadoPagoScreenState extends State<MercadoPagoScreen> {
             ),
             TextButton(
               child: const Text(
-                'Continue',
+                'Continuar',
                 style: TextStyle(color: Colors.green),
               ),
               onPressed: () {

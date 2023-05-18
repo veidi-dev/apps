@@ -375,16 +375,16 @@ class WalletController extends GetxController {
     try {
       Map<String, dynamic> body = {
         'amount': ((double.parse(amount) * 100).round()).toString(),
-        'currency': "USD",
+        'currency': "EUR",
         'payment_method_types[]': 'card',
-        "description": "${Preferences.getInt(Preferences.userId)} Wallet Topup",
+        "description": "${Preferences.getInt(Preferences.userId)} Pagamento",
         "shipping[name]":
             "${Preferences.getInt(Preferences.userId)} ${Preferences.getInt(Preferences.userId)}",
-        "shipping[address][line1]": "510 Townsend St",
-        "shipping[address][postal_code]": "98140",
-        "shipping[address][city]": "San Francisco",
-        "shipping[address][state]": "CA",
-        "shipping[address][country]": "US",
+        "shipping[address][line1]": " ",
+        "shipping[address][postal_code]": "",
+        "shipping[address][city]": "",
+        "shipping[address][state]": "",
+        "shipping[address][country]": "PT",
       };
       var stripeSecret = paymentSettingModel.value.strip!.secretKey;
       var response = await http.post(

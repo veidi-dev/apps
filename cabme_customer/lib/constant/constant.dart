@@ -30,7 +30,7 @@ class Constant {
   static String? appVersion = "0.0";
   static String? decimal = "2";
   static String? taxValue = "0";
-  static String? currency = "\$";
+  static String? currency = "\€";
   static String? taxType = 'Percentage';
   static String? taxName = 'Tax';
   static String? contactUsEmail = "",
@@ -38,7 +38,8 @@ class Constant {
       contactUsPhone = "+351925797913";
   static String? rideOtp = "yes";
 
-  static String stripePublishablekey = "Replace your public strip key";
+  static String stripePublishablekey =
+      "pk_live_51N62tnJ0cWe7vdGdU1hu4rkGdjwLwzVNq1XdRFLHQEl4bl0INjgsWb99Nlr83y2XV3BRe4eJ0ChjmlXwdzVCJ3E7009slmzCj5";
 
   static CollectionReference conversation =
       FirebaseFirestore.instance.collection('conversation');
@@ -89,7 +90,7 @@ class Constant {
             padding: const EdgeInsets.only(top: 20),
             child: ButtonThem.buildButton(
               context,
-              title: 'Book now'.tr,
+              title: 'Pedir um VEIDI'.tr,
               btnHeight: 45,
               btnWidthRatio: 0.8,
               btnColor: ConstantColors.primary,

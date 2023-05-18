@@ -74,23 +74,6 @@ class WalletScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Row(
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Scaffold.of(context).openDrawer();
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 15, horizontal: 10),
-                            child: Image.asset(
-                              "assets/icons/ic_side_menu.png",
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -101,7 +84,7 @@ class WalletScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               const Text(
-                                "Total Balance",
+                                "Saldo",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w600,
@@ -137,7 +120,7 @@ class WalletScreen extends StatelessWidget {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 18.0, vertical: 10),
                                 child: Text(
-                                  "TOPUP WALLET",
+                                  "ADICIONAR",
                                   style: TextStyle(
                                       color: ConstantColors.primary,
                                       fontWeight: FontWeight.w700,
@@ -594,7 +577,7 @@ class WalletScreen extends StatelessWidget {
                                   horizontal: 15.0, vertical: 10),
                               child: RichText(
                                 text: const TextSpan(
-                                  text: "Topup Wallet",
+                                  text: "Carteira",
                                   style: TextStyle(
                                       fontSize: 20,
                                       color: Colors.black,
@@ -611,7 +594,7 @@ class WalletScreen extends StatelessWidget {
                             padding: EdgeInsets.symmetric(
                               horizontal: 15.0,
                             ),
-                            child: Text("Add Topup Amount",
+                            child: Text("Valor a Adicionar",
                                 style: TextStyle(
                                     fontWeight: FontWeight.w700,
                                     color: Colors.grey)),
@@ -628,7 +611,7 @@ class WalletScreen extends StatelessWidget {
                               if (value!.isNotEmpty) {
                                 return null;
                               } else {
-                                return "*required";
+                                return "*obrigatório";
                               }
                             },
                             keyboardType: TextInputType.number,
@@ -656,7 +639,7 @@ class WalletScreen extends StatelessWidget {
                             ),
                             child: RichText(
                               text: const TextSpan(
-                                text: "Select Payment Option",
+                                text: "Opção de Pagamento",
                                 style: TextStyle(
                                   fontWeight: FontWeight.w600,
                                   color: Colors.black,
@@ -736,7 +719,7 @@ class WalletScreen extends StatelessWidget {
                                   const SizedBox(
                                     width: 20,
                                   ),
-                                  const Text("Stripe"),
+                                  const Text("Novo Cartão"),
                                 ],
                               ),
                               //toggleable: true,
@@ -1592,9 +1575,9 @@ class WalletScreen extends StatelessWidget {
 
       var request = BraintreePayPalRequest(
           amount: amountController.text,
-          currencyCode: "USD",
+          currencyCode: "EUR",
           billingAgreementDescription: "djsghxghf",
-          displayName: 'Cab company');
+          displayName: 'VEIDI PORTUGAL, LDA');
       BraintreePaymentMethodNonce? resultData;
       try {
         resultData =
@@ -1694,14 +1677,14 @@ class WalletScreen extends StatelessWidget {
   void openCheckout({required amount, required orderId}) async {
     var options = {
       'key': walletController.paymentSettingModel.value.razorpay!.key,
-      'amount': amount * 100,
-      'name': 'Foodies',
+      'amount': amount,
+      'name': 'VEIDI',
       'order_id': orderId,
-      "currency": "INR",
-      'description': 'wallet Topup',
+      "currency": "EUR",
+      'description': 'CARTÃO - VEIDI',
       'retry': {'enabled': true, 'max_count': 1},
       'send_sms_hash': true,
-      'prefill': {'contact': "8888888888", 'email': "demo@demo.com"},
+      'prefill': {'contact': "8888888888", 'email': "suport@demo.pt"},
       'external': {
         'wallets': ['paytm']
       }
@@ -1764,13 +1747,13 @@ class WalletScreen extends StatelessWidget {
               paymentIntentClientSecret: paymentIntentData!['client_secret'],
               allowsDelayedPaymentMethods: false,
               googlePay: stripe1.PaymentSheetGooglePay(
-                merchantCountryCode: 'US',
+                merchantCountryCode: 'PT',
                 testEnv: walletController.paymentSettingModel.value.strip!
                             .isSandboxEnabled ==
                         'true'
                     ? true
                     : false,
-                currencyCode: "USD",
+                currencyCode: "EUR",
               ),
               style: ThemeMode.system,
               appearance: stripe1.PaymentSheetAppearance(

@@ -62,9 +62,9 @@ class HomeController extends GetxController {
 
   clearData() {
     selectedVehicle.value = "";
-    selectPaymentMode.value = "Payment Method";
+    selectPaymentMode.value = "Metodo de Pagamento";
     tripOptionCategory = "Express".obs;
-    paymentMethodType = "Select Method".obs;
+    paymentMethodType = "Selecionar Método".obs;
     paymentMethodId = "".obs;
     distance = 0.0.obs;
     duration = "".obs;

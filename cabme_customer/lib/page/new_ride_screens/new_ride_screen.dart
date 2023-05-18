@@ -31,9 +31,7 @@ class NewRideScreen extends StatelessWidget {
                     ? Constant.loader()
                     : controller.rideList.isEmpty
                         ? Constant.emptyView(
-                            context,
-                            "You have not booked any trip.\n Please book a cab now",
-                            true)
+                            context, "Peça um VEIDI agora!", true)
                         : ListView.builder(
                             itemCount: controller.rideList.length,
                             shrinkWrap: true,

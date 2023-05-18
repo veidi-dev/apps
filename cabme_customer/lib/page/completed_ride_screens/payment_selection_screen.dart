@@ -61,8 +61,8 @@ class PaymentSelectionScreen extends StatelessWidget {
               backgroundColor: ConstantColors.background,
               elevation: 0,
               centerTitle: true,
-              title:
-                  const Text("Payment", style: TextStyle(color: Colors.black)),
+              title: const Text("Pagamento",
+                  style: TextStyle(color: Colors.black)),
               leading: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: GestureDetector(
@@ -282,7 +282,7 @@ class PaymentSelectionScreen extends StatelessWidget {
                                     children: [
                                       Expanded(
                                           child: Text(
-                                        "Driver Tip",
+                                        "Gorjeta ao Motorista",
                                         style: TextStyle(
                                             letterSpacing: 1.0,
                                             color: ConstantColors
@@ -715,7 +715,7 @@ class PaymentSelectionScreen extends StatelessWidget {
                                       ? ConstantColors.primary
                                       : Colors.transparent)),
                           controlAffinity: ListTileControlAffinity.trailing,
-                          value: "Wallet",
+                          value: "Carteira",
                           groupValue: controller.selectedRadioTile.value,
                           onChanged: (String? value) {
                             controller.stripe = false.obs;

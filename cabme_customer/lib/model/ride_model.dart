@@ -144,7 +144,7 @@ class RideData {
     tripCategory = json['trip_category'];
     nom = json['nom'];
     prenom = json['prenom'];
-    otp = json['otp']??'';
+    otp = json['otp'] ?? '';
     distance = json['distance'];
     phone = json['phone'];
     nomConducteur = json['nomConducteur'];

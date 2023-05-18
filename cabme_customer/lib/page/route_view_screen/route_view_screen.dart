@@ -291,7 +291,7 @@ class _RouteViewScreenState extends State<RouteViewScreen> {
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Expanded(
+                                /*Expanded(
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 5.0),
                                     child: Container(
@@ -328,7 +328,7 @@ class _RouteViewScreenState extends State<RouteViewScreen> {
                                       ),
                                     ),
                                   ),
-                                ),
+                                ),*/
                                 Expanded(
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 5.0),

@@ -1251,19 +1251,21 @@ class _HomeScreenState extends State<HomeScreen> {
                                         if (controller.distance.value >
                                             double.parse(value.data![i]
                                                 .minimumDeliveryChargesWithin!)) {
-                                          tripPrice.add((controller
+                                          tripPrice.add(50.0);
+                                          /* tripPrice.add((controller
                                                       .distance.value *
                                                   double.parse(value.data![i]
                                                       .deliveryCharges!))
                                               .toDouble()
                                               .toStringAsFixed(int.parse(
-                                                  Constant.decimal ?? "2")));
+                                                  Constant.decimal ?? "2")));*/
                                         } else {
-                                          tripPrice.add(double.parse(value
+                                          tripPrice.add(50.0);
+                                          /*tripPrice.add(double.parse(value
                                                   .data![i]
                                                   .minimumDeliveryCharges!)
                                               .toStringAsFixed(int.parse(
-                                                  Constant.decimal ?? "2")));
+                                                  Constant.decimal ?? "2")));*/
                                         }
                                       }
                                     }
@@ -1298,7 +1300,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       destinationLatLong!.latitude.toString(),
                                   'lng2':
                                       destinationLatLong!.longitude.toString(),
-                                  'cout': tripPrice.toString(),
+                                  'cout': "50", //tripPrice.toString(),
                                   'distance': controller.distance.toString(),
                                   'distance_unit':
                                       Constant.distanceUnit.toString(),
@@ -1341,7 +1343,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       departureLatLong = null;
                                       destinationLatLong = null;
                                       passengerController.clear();
-                                      tripPrice = 0.0;
+                                      tripPrice = 50.0;
                                       _markers.clear();
                                       controller.clearData();
                                       getDirections();
@@ -1456,9 +1458,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: const Text("Cab me"),
+      title: const Text("Veidi"),
       content: const Text(
-          "You have pending payments. Please complete payment before book new trip."),
+          "Tens Pagamentos pendentes. Completa-os antes de prosseguires"),
       actions: [
         okButton,
       ],
