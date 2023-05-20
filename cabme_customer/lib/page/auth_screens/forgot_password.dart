@@ -35,7 +35,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Forgot Password".tr,
+                        "Esqueceu-se da Senha".tr,
                         style: const TextStyle(
                             letterSpacing: 0.60,
                             fontSize: 22,
@@ -51,7 +51,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(top: 20),
                         child: Text(
-                          "Enter the email address we will send an OPT to create new password."
+                          "Insira o email que tem restitado para recuperar a senha."
                               .tr,
                           textAlign: TextAlign.start,
                           style: TextStyle(
@@ -73,7 +73,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                               if (value!.isNotEmpty) {
                                 return null;
                               } else {
-                                return 'required'.tr;
+                                return 'requerido'.tr;
                               }
                             },
                           ),
@@ -83,7 +83,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                           padding: const EdgeInsets.only(top: 40),
                           child: ButtonThem.buildButton(
                             context,
-                            title: 'Send'.tr,
+                            title: 'Enviar'.tr,
                             btnHeight: 50,
                             btnColor: ConstantColors.primary,
                             txtColor: Colors.white,

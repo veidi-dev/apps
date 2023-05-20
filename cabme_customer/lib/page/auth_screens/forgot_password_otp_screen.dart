@@ -46,7 +46,7 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Enter OTP".tr,
+                          "Código".tr,
                           style: const TextStyle(
                               letterSpacing: 0.60,
                               fontSize: 22,
@@ -102,7 +102,7 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
                               if (value!.length >= 6) {
                                 return null;
                               } else {
-                                return 'Password required at least 6 characters'
+                                return 'Senha tem de ter pelo menos 6 caracteres'
                                     .tr;
                               }
                             },
@@ -118,7 +118,7 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
                             contentPadding: EdgeInsets.zero,
                             validators: (String? value) {
                               if (_passwordController.text != value) {
-                                return 'Confirm password is invalid'.tr;
+                                return 'Inválido'.tr;
                               } else {
                                 return null;
                               }
@@ -129,7 +129,7 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
                             padding: const EdgeInsets.only(top: 40),
                             child: ButtonThem.buildButton(
                               context,
-                              title: 'Done'.tr,
+                              title: 'Feito'.tr,
                               btnHeight: 50,
                               btnColor: ConstantColors.primary,
                               txtColor: Colors.white,

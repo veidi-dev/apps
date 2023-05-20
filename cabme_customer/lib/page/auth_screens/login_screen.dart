@@ -43,7 +43,7 @@ class LoginScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Login with Email".tr,
+                      "Entrar com Email".tr,
                       style: const TextStyle(
                           letterSpacing: 0.60,
                           fontSize: 22,
@@ -173,7 +173,7 @@ class LoginScreen extends StatelessWidget {
                                 padding: const EdgeInsets.only(top: 40),
                                 child: ButtonThem.buildBorderButton(
                                   context,
-                                  title: 'Login With Phone Number'.tr,
+                                  title: 'Entrar com Telémovel'.tr,
                                   btnHeight: 50,
                                   btnColor: Colors.white,
                                   txtColor: ConstantColors.primary,
@@ -211,7 +211,7 @@ class LoginScreen extends StatelessWidget {
                 TextSpan(
                   children: [
                     TextSpan(
-                      text: 'You don’t have an account yet? ',
+                      text: 'Ainda não tem conta? ',
                       style: const TextStyle(
                           color: Colors.black, fontWeight: FontWeight.w500),
                       recognizer: TapGestureRecognizer()
@@ -225,7 +225,7 @@ class LoginScreen extends StatelessWidget {
                         },
                     ),
                     TextSpan(
-                      text: 'SIGNUP',
+                      text: 'REGISTAR',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: ConstantColors.primary),
