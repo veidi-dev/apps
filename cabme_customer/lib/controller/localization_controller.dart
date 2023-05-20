@@ -11,7 +11,7 @@ import '../model/language_model.dart';
 
 class LocalizationController extends GetxController {
   var languageList = <LanguageData>[].obs;
-  RxString selectedLanguage = "en".obs;
+  RxString selectedLanguage = "pt".obs;
 
   @override
   void onInit() {
@@ -60,8 +60,8 @@ class LocalizationController extends GetxController {
       } else {
         ShowToastDialog.closeLoader();
         ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+            'Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();

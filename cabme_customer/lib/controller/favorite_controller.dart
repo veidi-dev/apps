@@ -41,8 +41,8 @@ class FavoriteController extends GetxController {
       } else {
         isLoading.value = false;
         ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+            'Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       isLoading.value = false;
@@ -62,7 +62,7 @@ class FavoriteController extends GetxController {
 
   Future<dynamic> deleteFavouriteRide(String favId) async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response = await http.get(
           Uri.parse("${API.deleteFavouriteRide}?id_ride_fav=$favId"),
           headers: API.header);
@@ -74,8 +74,8 @@ class FavoriteController extends GetxController {
       } else {
         ShowToastDialog.closeLoader();
         ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+            'Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();

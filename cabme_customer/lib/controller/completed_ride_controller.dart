@@ -48,8 +48,8 @@ class CompletedRideController extends GetxController {
       } else {
         isLoading.value = false;
         ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+            'Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       isLoading.value = false;

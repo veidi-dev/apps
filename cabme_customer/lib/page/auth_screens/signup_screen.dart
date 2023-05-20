@@ -55,7 +55,7 @@ class SignupScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            "Sign up".tr.toUpperCase(),
+                            "Registar".tr.toUpperCase(),
                             style: const TextStyle(
                                 letterSpacing: 0.60,
                                 fontSize: 22,
@@ -113,7 +113,7 @@ class SignupScreen extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(top: 16),
                             child: TextFieldThem.boxBuildTextField(
-                              hintText: 'phone'.tr,
+                              hintText: 'telemóvel'.tr,
                               controller: _phoneController,
                               textInputType: TextInputType.number,
                               maxLength: 13,
@@ -140,7 +140,7 @@ class SignupScreen extends StatelessWidget {
                                         r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
                                     .hasMatch(value!);
                                 if (!emailValid) {
-                                  return 'email not valid'.tr;
+                                  return 'email não é valido'.tr;
                                 } else {
                                   return null;
                                 }
@@ -175,7 +175,7 @@ class SignupScreen extends StatelessWidget {
                                 if (value!.length >= 6) {
                                   return null;
                                 } else {
-                                  return 'Password required at least 6 characters'
+                                  return 'Password tem de ter pelo menos 6 caracteres'
                                       .tr;
                                 }
                               },
@@ -191,7 +191,8 @@ class SignupScreen extends StatelessWidget {
                               contentPadding: EdgeInsets.zero,
                               validators: (String? value) {
                                 if (_passwordController.text != value) {
-                                  return 'Confirm password is invalid'.tr;
+                                  return 'Confirmação da Password não é válida'
+                                      .tr;
                                 } else {
                                   return null;
                                 }

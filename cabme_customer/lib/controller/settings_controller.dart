@@ -23,7 +23,7 @@ class SettingsController extends GetxController {
 
   Future<SettingsModel?> getSettingsData() async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response = await http.get(
         Uri.parse(API.settings),
         headers: API.authheader,
@@ -55,9 +55,8 @@ class SettingsController extends GetxController {
         ShowToastDialog.showToast(responseBody['error']);
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       print(e.toString());

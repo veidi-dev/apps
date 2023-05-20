@@ -66,8 +66,8 @@ class PaymentController extends GetxController {
         coupanCodeList.clear();
       } else {
         ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+            'Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.showToast(e.message.toString());
@@ -135,8 +135,8 @@ class PaymentController extends GetxController {
           responseBody['success'] == "Failed") {
       } else {
         ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+            'Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.showToast(e.message.toString());
@@ -174,8 +174,8 @@ class PaymentController extends GetxController {
           responseBody['success'] == "Failed") {
       } else {
         ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+            'Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.showToast(e.message.toString());
@@ -233,7 +233,7 @@ class PaymentController extends GetxController {
   Future<dynamic> walletDebitAmountRequest(
       Map<String, dynamic> bodyParams) async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       log(bodyParams.toString());
       final response = await http.post(Uri.parse(API.payRequestWallet),
           headers: API.header, body: jsonEncode(bodyParams));
@@ -252,8 +252,8 @@ class PaymentController extends GetxController {
       } else {
         ShowToastDialog.closeLoader();
         ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+            'Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();
@@ -271,7 +271,7 @@ class PaymentController extends GetxController {
 
   Future<dynamic> cashPaymentRequest(Map<String, dynamic> bodyParams) async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response = await http.post(Uri.parse(API.payRequestCash),
           headers: API.header, body: jsonEncode(bodyParams));
 
@@ -291,8 +291,8 @@ class PaymentController extends GetxController {
       } else {
         ShowToastDialog.closeLoader();
         ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+            'Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();
@@ -322,7 +322,7 @@ class PaymentController extends GetxController {
     };
 
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response = await http.post(Uri.parse(API.payRequestTransaction),
           headers: API.header, body: jsonEncode(bodyParams));
       log(bodyParams.toString());
@@ -339,8 +339,8 @@ class PaymentController extends GetxController {
       } else {
         ShowToastDialog.closeLoader();
         ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+            'Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();

@@ -25,9 +25,8 @@ class ForgotPasswordController extends GetxController {
         ShowToastDialog.showToast(responseBody['error']);
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();
@@ -47,7 +46,7 @@ class ForgotPasswordController extends GetxController {
 
   Future<bool?> resetPassword(Map<String, String> bodyParams) async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response = await http.post(Uri.parse(API.resetPasswordOtp),
           headers: API.header, body: jsonEncode(bodyParams));
 
@@ -62,9 +61,8 @@ class ForgotPasswordController extends GetxController {
         ShowToastDialog.showToast(responseBody['error']);
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();

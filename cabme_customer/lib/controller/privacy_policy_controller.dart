@@ -19,7 +19,7 @@ class PrivacyPolicyController extends GetxController {
 
   Future<dynamic> getPrivacyPolicy() async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response = await http.get(
         Uri.parse(API.privacyPolicy),
         headers: API.header,
@@ -33,8 +33,8 @@ class PrivacyPolicyController extends GetxController {
       } else {
         ShowToastDialog.closeLoader();
         ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+            'Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();

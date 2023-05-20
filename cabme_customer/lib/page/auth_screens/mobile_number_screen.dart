@@ -39,7 +39,9 @@ class MobileNumberScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          isLogin == true ? "Login Phone" : "Signup Phone".tr,
+                          isLogin == true
+                              ? "Entrar com Telemóvel"
+                              : "Registar".tr,
                           style: const TextStyle(
                               letterSpacing: 0.60,
                               fontSize: 22,
@@ -73,7 +75,7 @@ class MobileNumberScreen extends StatelessWidget {
                               autoValidateMode:
                                   AutovalidateMode.onUserInteraction,
                               inputDecoration: InputDecoration(
-                                hintText: 'Phone Number'.tr,
+                                hintText: 'Nº Telemóvel'.tr,
                                 border: InputBorder.none,
                                 isDense: true,
                               ),
@@ -86,14 +88,14 @@ class MobileNumberScreen extends StatelessWidget {
                             padding: const EdgeInsets.only(top: 50),
                             child: ButtonThem.buildButton(
                               context,
-                              title: 'Continue'.tr,
+                              title: 'Continuar'.tr,
                               btnHeight: 50,
                               btnColor: ConstantColors.primary,
                               txtColor: Colors.white,
                               onPress: () async {
                                 FocusScope.of(context).unfocus();
                                 if (controller.isPhoneValid.value) {
-                                  ShowToastDialog.showLoader("Code sending");
+                                  ShowToastDialog.showLoader("Enviar Código");
                                   controller
                                       .sendCode(controller.phoneNumber.value);
                                 }
@@ -103,7 +105,7 @@ class MobileNumberScreen extends StatelessWidget {
                             padding: const EdgeInsets.only(top: 50),
                             child: ButtonThem.buildButton(
                               context,
-                              title: 'Login With Email'.tr,
+                              title: 'Login com Email'.tr,
                               btnHeight: 50,
                               btnColor: ConstantColors.yellow,
                               txtColor: Colors.white,

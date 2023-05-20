@@ -28,7 +28,7 @@ class AddComplaintController extends GetxController {
 
   Future<bool?> addComplaint(Map<String, String> bodyParams) async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response = await http.post(Uri.parse(API.addComplaint),
           headers: API.header, body: jsonEncode(bodyParams));
       Map<String, dynamic> responseBody = json.decode(response.body);
@@ -42,9 +42,8 @@ class AddComplaintController extends GetxController {
         ShowToastDialog.showToast(responseBody['error']);
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();

@@ -16,13 +16,15 @@ class PhoneNumberController extends GetxController {
   RxBool isPhoneValid = false.obs;
 
   sendCode(String phoneNumber) async {
+    print('recebi este número: $phoneNumber');
     await FirebaseAuth.instance
         .verifyPhoneNumber(
       phoneNumber: phoneNumber,
       verificationCompleted: (PhoneAuthCredential credential) {},
       verificationFailed: (FirebaseAuthException e) {
+        log(e.message.toString());
         if (e.code == 'invalid-phone-number') {
-          ShowToastDialog.showToast("The provided phone number is not valid.");
+          ShowToastDialog.showToast("O número de telemovel não é válido");
         }
       },
       codeSent: (String verificationId, int? resendToken) {
@@ -37,7 +39,7 @@ class PhoneNumberController extends GetxController {
         .catchError((error) {
       ShowToastDialog.closeLoader();
       ShowToastDialog.showToast(
-          "You have try many time please send otp after some time");
+          "Fez muitos pedidos de uma só vez. Por favor aguarde");
     });
   }
 
@@ -64,9 +66,8 @@ class PhoneNumberController extends GetxController {
         ShowToastDialog.showToast(responseBody['error']);
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();
@@ -87,7 +88,7 @@ class PhoneNumberController extends GetxController {
   Future<UserModel?> getDataByPhoneNumber(
       Map<String, String> bodyParams) async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response = await http.post(Uri.parse(API.getProfileByPhone),
           headers: API.header, body: jsonEncode(bodyParams));
 
@@ -101,9 +102,8 @@ class PhoneNumberController extends GetxController {
         ShowToastDialog.showToast(responseBody['error']);
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();

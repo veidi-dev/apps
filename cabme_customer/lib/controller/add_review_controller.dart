@@ -57,9 +57,8 @@ class AddReviewController extends GetxController {
         isLoading.value = false;
       } else {
         isLoading.value = false;
-        ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       isLoading.value = false;
@@ -79,7 +78,7 @@ class AddReviewController extends GetxController {
 
   Future<bool?> addReview(Map<String, String> bodyParams) async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response = await http.post(Uri.parse(API.addReview),
           headers: API.header, body: jsonEncode(bodyParams));
 
@@ -94,9 +93,8 @@ class AddReviewController extends GetxController {
         ShowToastDialog.showToast(responseBody['error']);
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();

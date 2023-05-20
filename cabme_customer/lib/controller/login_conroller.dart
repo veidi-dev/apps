@@ -12,7 +12,7 @@ import 'package:http/http.dart' as http;
 class LoginController extends GetxController {
   Future<UserModel?> loginAPI(Map<String, String> bodyParams) async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response = await http.post(Uri.parse(API.userLogin),
           headers: API.authheader, body: jsonEncode(bodyParams));
 
@@ -35,8 +35,8 @@ class LoginController extends GetxController {
       } else {
         ShowToastDialog.closeLoader();
         ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+            'Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();

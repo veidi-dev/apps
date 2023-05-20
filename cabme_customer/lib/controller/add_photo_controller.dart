@@ -31,7 +31,7 @@ class AddPhotoController extends GetxController {
 
   Future<dynamic> uploadPhoto() async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
 
       var request = http.MultipartRequest(
         'POST',
@@ -54,13 +54,12 @@ class AddPhotoController extends GetxController {
 
       if (res.statusCode == 200) {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast("Uploaded!");
+        ShowToastDialog.showToast("Carregada!");
         return response;
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();
@@ -79,7 +78,7 @@ class AddPhotoController extends GetxController {
 
   Future<dynamic> uploadNicPhoto() async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
 
       var request = http.MultipartRequest(
         'POST',
@@ -100,13 +99,12 @@ class AddPhotoController extends GetxController {
           jsonDecode(String.fromCharCodes(responseData));
       if (res.statusCode == 200) {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast("Uploaded!");
+        ShowToastDialog.showToast("Carregada!");
         return response;
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();

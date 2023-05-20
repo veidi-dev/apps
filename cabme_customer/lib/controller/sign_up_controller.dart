@@ -13,7 +13,7 @@ import 'package:http/http.dart' as http;
 class SignUpController extends GetxController {
   Future<UserModel?> signUp(Map<String, String> bodyParams) async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response = await http.post(Uri.parse(API.userSignUP),
           headers: API.authheader, body: jsonEncode(bodyParams));
       Map<String, dynamic> responseBody = json.decode(response.body);
@@ -28,9 +28,8 @@ class SignUpController extends GetxController {
         return UserModel.fromJson(responseBody);
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();

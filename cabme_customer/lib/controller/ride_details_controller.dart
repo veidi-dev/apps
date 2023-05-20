@@ -24,7 +24,7 @@ class RideDetailsController extends GetxController {
 
   Future<dynamic> feelNotSafe(Map<String, dynamic> bodyParams) async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response = await http.post(Uri.parse(API.feelSafeAtDestination),
           headers: API.header, body: jsonEncode(bodyParams));
       Map<String, dynamic> responseBody = json.decode(response.body);
@@ -54,7 +54,7 @@ class RideDetailsController extends GetxController {
 
   Future<dynamic> canceledRide(Map<String, String> bodyParams) async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response = await http.post(Uri.parse(API.rejectRide),
           headers: API.header, body: jsonEncode(bodyParams));
 
@@ -69,9 +69,8 @@ class RideDetailsController extends GetxController {
         ShowToastDialog.showToast(responseBody['error']);
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();
@@ -89,7 +88,7 @@ class RideDetailsController extends GetxController {
 
   Future<dynamic> setConformRequest(Map<String, dynamic> bodyParams) async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response = await http.post(Uri.parse(API.driverConfirmRide),
           headers: API.header, body: jsonEncode(bodyParams));
 
@@ -104,9 +103,8 @@ class RideDetailsController extends GetxController {
         ShowToastDialog.showToast(responseBody['error']);
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();
@@ -124,7 +122,7 @@ class RideDetailsController extends GetxController {
 
   Future<dynamic> sos(Map<String, dynamic> bodyParams) async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response = await http.post(Uri.parse(API.sos),
           headers: API.header, body: jsonEncode(bodyParams));
 

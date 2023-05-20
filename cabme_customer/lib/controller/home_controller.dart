@@ -72,7 +72,7 @@ class HomeController extends GetxController {
 
   Future<TaxiModel?> getTaxiData() async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response = await http.get(
           Uri.parse(
               "${API.taxi}?id_user_app=${Preferences.getInt(Preferences.userId)}"),
@@ -85,9 +85,8 @@ class HomeController extends GetxController {
         return TaxiModel.fromJson(responseBody);
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();
@@ -151,9 +150,8 @@ class HomeController extends GetxController {
       } else if (response.statusCode == 200 &&
           responseBody['success'] == "Failed") {
       } else {
-        ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.showToast(e.message.toString());
@@ -379,7 +377,7 @@ class HomeController extends GetxController {
 
   Future<dynamic> bookRide(Map<String, String> bodyParams) async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response = await http.post(Uri.parse(API.bookRides),
           headers: API.header, body: jsonEncode(bodyParams));
 
@@ -389,9 +387,8 @@ class HomeController extends GetxController {
         return responseBody;
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
-        throw Exception('Failed to load album');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();
