@@ -12,13 +12,15 @@ class TermsOfServiceScreen extends StatelessWidget {
         init: TermsOfServiceController(),
         builder: (controller) {
           return Scaffold(
-            body: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: controller.data != null
-                  ? Html(
-                      data: controller.data,
-                    )
-                  : const Offstage(),
+            body: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: controller.data != null
+                    ? Html(
+                        data: controller.data,
+                      )
+                    : const Offstage(),
+              ),
             ),
           );
         });

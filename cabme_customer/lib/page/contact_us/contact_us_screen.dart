@@ -16,7 +16,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
+      /*floatingActionButton: FloatingActionButton(
         heroTag: 'Contact Us',
         onPressed: () {
           String url = 'tel:${Constant.contactUsPhone}';
@@ -27,7 +27,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
           CupertinoIcons.phone_solid,
           color: Colors.white,
         ),
-      ),
+      ),*/
       body: Column(children: <Widget>[
         Material(
             elevation: 2,

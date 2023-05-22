@@ -60,6 +60,10 @@ class WalletController extends GetxController {
     }
   }
 
+  teste() {
+    print("funciona");
+  }
+
   Future<dynamic> getPaymentMethod() async {
     try {
       isLoading.value = true;
@@ -67,7 +71,7 @@ class WalletController extends GetxController {
           await http.get(Uri.parse(API.getPaymentMethod), headers: API.header);
 
       Map<String, dynamic> responseBody = json.decode(response.body);
-
+      print("eu estou no wallet_controller");
       devlo.log(responseBody.toString());
       if (response.statusCode == 200 && responseBody['success'] == "success") {
         isLoading.value = false;
@@ -80,8 +84,7 @@ class WalletController extends GetxController {
       } else {
         isLoading.value = false;
         paymentMethodList.clear();
-        ShowToastDialog.showToast(
-            'Algo correu mal. Tente mais tarde');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
         throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
@@ -119,8 +122,7 @@ class WalletController extends GetxController {
         isLoading.value = false;
       } else {
         isLoading.value = false;
-        ShowToastDialog.showToast(
-            'Algo correu mal. Tente mais tarde');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
         throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
@@ -154,8 +156,7 @@ class WalletController extends GetxController {
       } else if (response.statusCode == 200 &&
           responseBody['success'] == "failed") {
       } else {
-        ShowToastDialog.showToast(
-            'Algo correu mal. Tente mais tarde');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
         throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
@@ -193,8 +194,7 @@ class WalletController extends GetxController {
         ShowToastDialog.closeLoader();
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Algo correu mal. Tente mais tarde');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
         throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
@@ -247,8 +247,7 @@ class WalletController extends GetxController {
         isLoading.value = false;
       } else {
         isLoading.value = false;
-        ShowToastDialog.showToast(
-            'Algo correu mal. Tente mais tarde');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
         throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
@@ -316,8 +315,7 @@ class WalletController extends GetxController {
         isLoading.value = false;
       } else {
         isLoading.value = false;
-        ShowToastDialog.showToast(
-            'Algo correu mal. Tente mais tarde');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
         throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
@@ -380,10 +378,10 @@ class WalletController extends GetxController {
         "description": "${Preferences.getInt(Preferences.userId)} Pagamento",
         "shipping[name]":
             "${Preferences.getInt(Preferences.userId)} ${Preferences.getInt(Preferences.userId)}",
-        "shipping[address][line1]": " ",
-        "shipping[address][postal_code]": "",
-        "shipping[address][city]": "",
-        "shipping[address][state]": "",
+        "shipping[address][line1]": "teste",
+        "shipping[address][postal_code]": "teste",
+        "shipping[address][city]": "teste",
+        "shipping[address][state]": "teste",
         "shipping[address][country]": "PT",
       };
       var stripeSecret = paymentSettingModel.value.strip!.secretKey;

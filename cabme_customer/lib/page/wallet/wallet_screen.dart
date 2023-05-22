@@ -543,6 +543,12 @@ class WalletScreen extends StatelessWidget {
   // }
 
   addToWalletAmount(BuildContext context) {
+    print("####################################");
+    print("estou");
+    print(context);
+    print(walletController.teste());
+    print("####################################");
+
     return showModalBottomSheet(
         elevation: 5,
         useRootNavigator: true,
@@ -553,6 +559,7 @@ class WalletScreen extends StatelessWidget {
         context: context,
         backgroundColor: ConstantColors.background,
         builder: (context) {
+          print("ao menos entrei");
           return GetX<WalletController>(
               init: WalletController(),
               initState: (controller) {
@@ -727,7 +734,7 @@ class WalletScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Visibility(
+                      /*                     Visibility(
                         visible: walletController.paymentSettingModel.value
                                     .payStack!.isEnabled ==
                                 "true"
@@ -1251,7 +1258,7 @@ class WalletScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-
+*/
                       // controller.isLoading.value
                       //     ? Constant.loader()
                       //     : controller.paymentMethodList.isEmpty
