@@ -77,6 +77,7 @@ class WalletController extends GetxController {
         isLoading.value = false;
         PaymentMethodModel model = PaymentMethodModel.fromJson(responseBody);
         paymentMethodList.value = model.data!;
+        print(responseBody);
       } else if (response.statusCode == 200 &&
           responseBody['success'] == "failed") {
         paymentMethodList.clear();
@@ -375,7 +376,7 @@ class WalletController extends GetxController {
         'amount': ((double.parse(amount) * 100).round()).toString(),
         'currency': "EUR",
         'payment_method_types[]': 'card',
-        "description": "${Preferences.getInt(Preferences.userId)} Pagamento",
+        "description": "${Preferences.getInt(Preferences.userId)} Wallet Topup",
         "shipping[name]":
             "${Preferences.getInt(Preferences.userId)} ${Preferences.getInt(Preferences.userId)}",
         "shipping[address][line1]": "teste",

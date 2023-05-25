@@ -12,15 +12,15 @@ class PrivacyPolicyScreen extends StatelessWidget {
         init: PrivacyPolicyController(),
         builder: (controller) {
           return Scaffold(
-            body: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: controller.privacyData != null
-                    ? Html(
+            body: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: controller.privacyData != null
+                  ? SingleChildScrollView(
+                      child: Html(
                         data: controller.privacyData,
-                      )
-                    : const Offstage(),
-              ),
+                      ),
+                    )
+                  : const Offstage(),
             ),
           );
         });

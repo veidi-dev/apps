@@ -153,8 +153,7 @@ class DashBoardController extends GetxController {
       if (response.statusCode == 200) {
         return responseBody;
       } else {
-        ShowToastDialog.showToast(
-            'Algo correu mal. Tente mais tarde');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
         throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
@@ -185,8 +184,7 @@ class DashBoardController extends GetxController {
       } else if (response.statusCode == 200 &&
           responseBody['success'] == "Failed") {
       } else {
-        ShowToastDialog.showToast(
-            'Algo correu mal. Tente mais tarde');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
         throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {

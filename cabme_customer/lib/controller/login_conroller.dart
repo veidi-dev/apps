@@ -34,21 +34,27 @@ class LoginController extends GetxController {
         ShowToastDialog.showToast(responseBody['error']);
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Algo correu mal. Tente mais tarde');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
         throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();
+      print("timeout");
       ShowToastDialog.showToast(e.message.toString());
     } on SocketException catch (e) {
       ShowToastDialog.closeLoader();
+      print("timeout2");
+
       ShowToastDialog.showToast(e.message.toString());
     } on Error catch (e) {
       ShowToastDialog.closeLoader();
+      print("timeout 3");
+
       ShowToastDialog.showToast(e.toString());
     } catch (e) {
       ShowToastDialog.closeLoader();
+      print("timeout 4");
+
       ShowToastDialog.showToast(e.toString());
     }
     return null;

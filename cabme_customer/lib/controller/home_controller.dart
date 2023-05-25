@@ -392,15 +392,19 @@ class HomeController extends GetxController {
       }
     } on TimeoutException catch (e) {
       ShowToastDialog.closeLoader();
+      print("timeout");
       ShowToastDialog.showToast(e.message.toString());
     } on SocketException catch (e) {
       ShowToastDialog.closeLoader();
+      print("timeout");
       ShowToastDialog.showToast(e.message.toString());
     } on Error catch (e) {
       ShowToastDialog.closeLoader();
+      print("timeout");
       ShowToastDialog.showToast(e.toString());
     } catch (e) {
       ShowToastDialog.closeLoader();
+      print("timeout");
       ShowToastDialog.showToast(e.toString());
     }
     return null;

@@ -30,7 +30,7 @@ class Constant {
   static String? appVersion = "0.0";
   static String? decimal = "2";
   static String? taxValue = "0";
-  static String? currency = "\€";
+  static String? currency = "€";
   static String? taxType = 'Percentage';
   static String? taxName = 'Tax';
   static String? contactUsEmail = "",
@@ -53,14 +53,21 @@ class Constant {
 
   static UserModel getUserData() {
     final String user = Preferences.getString(Preferences.user);
+    print('Teste ao getUserData ' + user);
     Map<String, dynamic> userMap = jsonDecode(user);
     return UserModel.fromJson(userMap);
   }
 
   static PaymentSettingModel getPaymentSetting() {
+    print('VEIDI');
+    print(Preferences.paymentSetting);
     final String user = Preferences.getString(Preferences.paymentSetting);
+    print('aaaa');
+    print(user);
     if (user.isNotEmpty) {
       Map<String, dynamic> userMap = jsonDecode(user);
+      print(userMap);
+      print("aaaaaaaaa");
       return PaymentSettingModel.fromJson(userMap);
     }
     return PaymentSettingModel();

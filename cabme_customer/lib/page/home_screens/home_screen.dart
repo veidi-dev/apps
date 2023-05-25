@@ -1281,13 +1281,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           Expanded(
                             child: ButtonThem.buildButton(context,
                                 btnHeight: 40,
-                                title: "Book now".tr,
+                                title: "Pedir Veidi".tr,
                                 btnColor: ConstantColors.primary,
                                 txtColor: Colors.white, onPress: () {
                               if (controller.paymentMethodType.value ==
                                   "Select Method") {
                                 ShowToastDialog.showToast(
-                                    "Please select payment method");
+                                    "Selecione o meio de pagamento");
                               } else {
                                 Map<String, String> bodyParams = {
                                   'user_id':
@@ -1430,6 +1430,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               if (value['success'] == "Success") {
                                 Get.back();
                               } else {
+                                print('Tenho um erro!!!');
                                 ShowToastDialog.showToast(value['error']);
                               }
                             });

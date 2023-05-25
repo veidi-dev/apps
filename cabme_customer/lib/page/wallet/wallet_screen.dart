@@ -543,12 +543,6 @@ class WalletScreen extends StatelessWidget {
   // }
 
   addToWalletAmount(BuildContext context) {
-    print("####################################");
-    print("estou");
-    print(context);
-    print(walletController.teste());
-    print("####################################");
-
     return showModalBottomSheet(
         elevation: 5,
         useRootNavigator: true,
@@ -559,7 +553,6 @@ class WalletScreen extends StatelessWidget {
         context: context,
         backgroundColor: ConstantColors.background,
         builder: (context) {
-          print("ao menos entrei");
           return GetX<WalletController>(
               init: WalletController(),
               initState: (controller) {
@@ -571,6 +564,9 @@ class WalletScreen extends StatelessWidget {
                     Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
               },
               builder: (controller) {
+                print("ping2");
+
+                print("ping");
                 return SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
                   child: Column(
@@ -664,6 +660,7 @@ class WalletScreen extends StatelessWidget {
                                 "true"
                             ? true
                             : false,
+                        //  true,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
                               vertical: 3.0, horizontal: 20),
@@ -1744,7 +1741,7 @@ class WalletScreen extends StatelessWidget {
       if (paymentIntentData!.containsKey("error")) {
         Get.back();
         showSnackBarAlert(
-          message: "Something went wrong, please contact admin.",
+          message: "Alguma coisa correu mal. Contacte o suporte.",
           color: Colors.red.shade400,
         );
       } else {

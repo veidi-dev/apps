@@ -25,7 +25,7 @@ class TripHistoryScreen extends StatelessWidget {
               backgroundColor: ConstantColors.background,
               elevation: 0,
               centerTitle: true,
-              title: const Text("Trip Details",
+              title: const Text("Detalhes da Viagem",
                   style: TextStyle(color: Colors.black)),
               leading: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -530,8 +530,8 @@ class TripHistoryScreen extends StatelessWidget {
                     child: ButtonThem.buildButton(context,
                         btnHeight: 40,
                         title: controller.data.value.statutPaiement == "yes"
-                            ? "Paid"
-                            : "Pay Now",
+                            ? "Pago"
+                            : "Pagar Agora",
                         btnColor: controller.data.value.statutPaiement == "yes"
                             ? Colors.green
                             : ConstantColors.primary,
