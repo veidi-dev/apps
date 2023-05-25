@@ -65,7 +65,7 @@ const Map<String, String> ptPO = {
   'book_now': "AGENDE AGORA",
   'cancel': "Cancelar",
   'add_to_wallet': "Adicionar à carteira",
-  'enter_amount': "Insira o valor",
+  'enter_amount': "65",
   'submit': "Enviar",
   'title': "Título",
   'message': "Mensagem",

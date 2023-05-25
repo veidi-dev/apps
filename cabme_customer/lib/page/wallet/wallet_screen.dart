@@ -140,7 +140,7 @@ class WalletScreen extends StatelessWidget {
                     ? Constant.loader()
                     : controller.walletList.isEmpty
                         ? Constant.emptyView(
-                            context, "Transaction not found.", false)
+                            context, "Ainda não existem transações", false)
                         : RefreshIndicator(
                             onRefresh: () => _refreshAPI(),
                             child: Padding(
@@ -197,8 +197,8 @@ class WalletScreen extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 5),
                         child: Text(
                           data.deductionType == 1
-                              ? "Wallet Topup"
-                              : "Payment for Trip",
+                              ? "Carteira"
+                              : "Valor para viagem",
                           style: const TextStyle(
                               fontWeight: FontWeight.w500, color: Colors.grey),
                         ),
@@ -255,7 +255,7 @@ class WalletScreen extends StatelessWidget {
                     const Padding(
                       padding: EdgeInsets.symmetric(vertical: 25.0),
                       child: Text(
-                        "Transaction Details",
+                        "Detalhes da Transação",
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 16,
@@ -279,7 +279,7 @@ class WalletScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   const Text(
-                                    "Transaction ID",
+                                    "ID Global da Transação",
                                     style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       fontSize: 15,
@@ -345,8 +345,8 @@ class WalletScreen extends StatelessWidget {
                                         opacity: 0.7,
                                         child: Text(
                                           data.deductionType == 1
-                                              ? "Wallet Topup"
-                                              : "Payment for Trip",
+                                              ? "Carteira"
+                                              : "Valor para viagem",
                                           style: const TextStyle(
                                             fontWeight: FontWeight.w500,
                                             fontSize: 14,
@@ -393,7 +393,7 @@ class WalletScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   const Text(
-                                    "Payment Details",
+                                    "Detalhes do Pagamento",
                                     style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       fontSize: 14,
@@ -409,7 +409,7 @@ class WalletScreen extends StatelessWidget {
                                       const Opacity(
                                         opacity: 0.7,
                                         child: Text(
-                                          "Pay Via",
+                                          "Pago através de ",
                                           style: TextStyle(
                                             fontSize: 16,
                                           ),
@@ -442,7 +442,7 @@ class WalletScreen extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       const Text(
-                                        "Date in UTC Format",
+                                        "Data no Formato UTC",
                                         style: TextStyle(
                                           fontWeight: FontWeight.w600,
                                           fontSize: 14,
@@ -564,9 +564,6 @@ class WalletScreen extends StatelessWidget {
                     Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
               },
               builder: (controller) {
-                print("ping2");
-
-                print("ping");
                 return SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
                   child: Column(
@@ -613,19 +610,22 @@ class WalletScreen extends StatelessWidget {
                             validator: (String? value) {
                               if (value!.isNotEmpty) {
                                 return null;
+                              } else if (int.parse(value) < 65) {
+                                return "Valor insuficiente";
                               } else {
                                 return "*obrigatório";
                               }
                             },
+                            //enabled: false,
                             keyboardType: TextInputType.number,
                             textCapitalization: TextCapitalization.sentences,
                             controller: amountController,
-                            maxLength: 13,
+                            maxLength: 5,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
-                              counterText: "",
+                              counterText: "depósito mínimo de 65€",
                               hintText: "enter_amount".tr,
                               contentPadding:
                                   const EdgeInsets.only(top: 20, left: 10),
@@ -723,7 +723,7 @@ class WalletScreen extends StatelessWidget {
                                   const SizedBox(
                                     width: 20,
                                   ),
-                                  const Text("Novo Cartão"),
+                                  const Text("Cartão"),
                                 ],
                               ),
                               //toggleable: true,
@@ -1341,48 +1341,64 @@ class WalletScreen extends StatelessWidget {
                             vertical: 12.0, horizontal: 15),
                         child: GestureDetector(
                           onTap: () async {
-                            if (_walletFormKey.currentState!.validate()) {
-                              Get.back();
-                              showLoadingAlert(context);
-                              if (walletController.selectedRadioTile!.value ==
-                                  "Stripe") {
-                                stripeMakePayment(
-                                    amount: amountController.text);
-                              } else if (walletController
-                                      .selectedRadioTile!.value ==
-                                  "RazorPay") {
-                                startRazorpayPayment();
-                              } else if (walletController
-                                      .selectedRadioTile!.value ==
-                                  "PayTm") {
-                                getPaytmCheckSum(context,
-                                    amount:
-                                        double.parse(amountController.text));
-                              } else if (walletController
-                                      .selectedRadioTile!.value ==
-                                  "PayPal") {
-                                _paypalPayment();
-                              } else if (walletController
-                                      .selectedRadioTile!.value ==
-                                  "PayStack") {
-                                payStackPayment(context);
-                              } else if (walletController
-                                      .selectedRadioTile!.value ==
-                                  "FlutterWave") {
-                                flutterWaveInitiatePayment(context);
-                              } else if (walletController
-                                      .selectedRadioTile!.value ==
-                                  "PayFast") {
-                                payFastPayment(context);
-                              } else if (walletController
-                                      .selectedRadioTile!.value ==
-                                  "MercadoPago") {
-                                mercadoPagoMakePayment(context);
+                            print(
+                                "Cliquei no botao e tenho isto no controller: " +
+                                    amountController.text);
+                            if (amountController.text.isNotEmpty) {
+                              if (!(int.parse(amountController.text) < 65)) {
+                                if (_walletFormKey.currentState!.validate()) {
+                                  Get.back();
+                                  showLoadingAlert(context);
+                                  if (walletController
+                                          .selectedRadioTile!.value ==
+                                      "Stripe") {
+                                    stripeMakePayment(
+                                        amount: amountController.text);
+                                  } else if (walletController
+                                          .selectedRadioTile!.value ==
+                                      "RazorPay") {
+                                    startRazorpayPayment();
+                                  } else if (walletController
+                                          .selectedRadioTile!.value ==
+                                      "PayTm") {
+                                    getPaytmCheckSum(context,
+                                        amount: double.parse(
+                                            amountController.text));
+                                  } else if (walletController
+                                          .selectedRadioTile!.value ==
+                                      "PayPal") {
+                                    _paypalPayment();
+                                  } else if (walletController
+                                          .selectedRadioTile!.value ==
+                                      "PayStack") {
+                                    payStackPayment(context);
+                                  } else if (walletController
+                                          .selectedRadioTile!.value ==
+                                      "FlutterWave") {
+                                    flutterWaveInitiatePayment(context);
+                                  } else if (walletController
+                                          .selectedRadioTile!.value ==
+                                      "PayFast") {
+                                    payFastPayment(context);
+                                  } else if (walletController
+                                          .selectedRadioTile!.value ==
+                                      "MercadoPago") {
+                                    mercadoPagoMakePayment(context);
+                                  } else {
+                                    Get.back();
+                                    ShowToastDialog.showToast(
+                                        "Selecione o Método de Pagamento");
+                                  }
+                                }
                               } else {
                                 Get.back();
                                 ShowToastDialog.showToast(
-                                    "Please select payment method");
+                                    "Depósito Insuficiente");
                               }
+                            } else {
+                              Get.back();
+                              ShowToastDialog.showToast(
+                                  "Depósito Insuficiente");
                             }
                           },
                           child: Container(
@@ -1393,7 +1409,7 @@ class WalletScreen extends StatelessWidget {
                             ),
                             child: const Center(
                                 child: Text(
-                              "CONTINUE",
+                              "CONTINUAR",
                               style: TextStyle(color: Colors.white),
                             )),
                           ),
@@ -2001,7 +2017,7 @@ class WalletScreen extends StatelessWidget {
           walletController.setAmount(amountController.text).then((value) {
             if (value != null) {
               showSnackBarAlert(
-                message: "Payment Successful!!",
+                message: "Pagamento Realizado com Sucesso",
                 color: Colors.green.shade400,
               );
               _refreshAPI();
@@ -2010,14 +2026,14 @@ class WalletScreen extends StatelessWidget {
         } else {
           Get.back();
           showSnackBarAlert(
-            message: "Payment UnSuccessful!!",
+            message: "Pagamento não foi bem sucedido",
             color: Colors.red,
           );
         }
       } else {
         Get.back();
         showSnackBarAlert(
-          message: "Error while transaction!",
+          message: "Ocorreu um erro na transição",
           color: Colors.red,
         );
       }
@@ -2058,7 +2074,7 @@ class WalletScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: const [
               CircularProgressIndicator(),
-              Text('Please wait!!'),
+              Text('Espere um pouco'),
             ],
           ),
           content: SingleChildScrollView(
@@ -2068,7 +2084,7 @@ class WalletScreen extends StatelessWidget {
                   height: 15,
                 ),
                 Text(
-                  'Please wait!! while completing Transaction',
+                  'Espere pela conclusão da transação',
                   style: TextStyle(fontSize: 16),
                 ),
                 SizedBox(
