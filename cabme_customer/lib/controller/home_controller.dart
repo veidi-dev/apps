@@ -106,7 +106,7 @@ class HomeController extends GetxController {
 
   Future<dynamic> getDurationDistance(
       LatLng departureLatLong, LatLng destinationLatLong) async {
-    ShowToastDialog.showLoader("Please wait");
+    ShowToastDialog.showLoader("A processar");
     double originLat, originLong, destLat, destLong;
     originLat = departureLatLong.latitude;
     originLong = departureLatLong.longitude;
@@ -201,7 +201,7 @@ class HomeController extends GetxController {
 
   Future<dynamic> getUserPendingPayment() async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
 
       Map<String, dynamic> bodyParams = {
         'user_id': Preferences.getInt(Preferences.userId)
@@ -216,7 +216,7 @@ class HomeController extends GetxController {
       } else {
         ShowToastDialog.closeLoader();
         ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
+            'Algo de inesperado aconteceu. Contacte o suporte');
         throw Exception('Failed to load album');
       }
     } on TimeoutException catch (e) {
@@ -237,7 +237,7 @@ class HomeController extends GetxController {
 
   Future<VehicleCategoryModel?> getVehicleCategory() async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response = await http.get(Uri.parse(API.getVehicleCategory),
           headers: API.header);
       log(response.body);
@@ -248,8 +248,7 @@ class HomeController extends GetxController {
         return VehicleCategoryModel.fromJson(responseBody);
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
+        ShowToastDialog.showToast('Algo de inesperado aconteceu');
         throw Exception('Failed to load album');
       }
     } on TimeoutException catch (e) {
@@ -271,7 +270,7 @@ class HomeController extends GetxController {
   Future<DriverModel?> getDriverDetails(
       String typeVehicle, String lat1, String lng1) async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response = await http.get(
           Uri.parse(
               "${API.driverDetails}?type_vehicle=$typeVehicle&lat1=$lat1&lng1=$lng1"),
@@ -285,8 +284,7 @@ class HomeController extends GetxController {
         return DriverModel.fromJson(responseBody);
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
+        ShowToastDialog.showToast('Algo de inesperado aconteceu');
         throw Exception('Failed to load album');
       }
     } on TimeoutException catch (e) {
@@ -307,7 +305,7 @@ class HomeController extends GetxController {
 
   Future<PaymentMethodModel?> getPaymentMethod() async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response =
           await http.get(Uri.parse(API.getPaymentMethod), headers: API.header);
       Map<String, dynamic> responseBody = json.decode(response.body);
@@ -316,8 +314,7 @@ class HomeController extends GetxController {
         return PaymentMethodModel.fromJson(responseBody);
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
+        ShowToastDialog.showToast('Algo de inesperado aconteceu');
         throw Exception('Failed to load album');
       }
     } on TimeoutException catch (e) {
@@ -346,7 +343,7 @@ class HomeController extends GetxController {
 
   Future<dynamic> setFavouriteRide(Map<String, String> bodyParams) async {
     try {
-      ShowToastDialog.showLoader("Please wait");
+      ShowToastDialog.showLoader("Aguarde");
       final response = await http.post(Uri.parse(API.setFavouriteRide),
           headers: API.header, body: jsonEncode(bodyParams));
       Map<String, dynamic> responseBody = json.decode(response.body);
@@ -356,8 +353,7 @@ class HomeController extends GetxController {
         return responseBody;
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Something want wrong. Please try again later');
+        ShowToastDialog.showToast('Algo de inesperado aconteceu');
         throw Exception('Failed to load album');
       }
     } on TimeoutException catch (e) {

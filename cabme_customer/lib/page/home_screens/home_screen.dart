@@ -428,6 +428,20 @@ class _HomeScreenState extends State<HomeScreen> {
                         title: "Continuar".tr,
                         btnColor: ConstantColors.primary,
                         txtColor: Colors.white, onPress: () async {
+                      print('entrei no processo');
+                      var dist = await controller.getDurationDistance(
+                          departureLatLong!, destinationLatLong!);
+                      if (dist != null &&
+                          double.parse(dist['rows']
+                                  .first['elements']
+                                  .first['distance']['text']
+                                  .split(' ')[0]) >
+                              45.0) {
+                        Get.back();
+                        ShowToastDialog.showToast(
+                            "Não fazemos transportes para esse destino");
+                        return;
+                      }
                       await controller
                           .getDurationDistance(
                               departureLatLong!, destinationLatLong!)
@@ -753,7 +767,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     const Padding(
                       padding: EdgeInsets.symmetric(vertical: 10),
                       child: Text(
-                        "Escolha o veículo que precisa",
+                        "Selecione o Motorista",
                         style: TextStyle(fontSize: 18, color: Colors.black),
                       ),
                     ),
@@ -782,9 +796,48 @@ class _HomeScreenState extends State<HomeScreen> {
                     Divider(
                       color: Colors.grey.shade700,
                     ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Row(
+                            children: [
+                              Image.asset("assets/icons/boxes.png",
+                                  height: 24, width: 24),
+                              const Padding(
+                                padding: EdgeInsets.only(left: 10),
+                                child: Text(
+                                    "Neste serviço só poderá\ntransportar um total de 3 itens",
+                                    style: TextStyle(fontSize: 16)),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Row(
+                            children: [
+                              Image.asset("assets/icons/ic_truck.png",
+                                  height: 24, width: 24),
+                              const Padding(
+                                padding: EdgeInsets.all(10),
+                                child: Text(
+                                    "As nossas Carrinhas têm \nCapacidade Mínima de 10m3",
+                                    style: TextStyle(fontSize: 16)),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Divider(
+                      color: Colors.grey.shade700,
+                    ),
                     Expanded(
                       child: ListView.builder(
-                          itemCount: vehicleCategoryModel.data!.length,
+                          itemCount: 1, // vehicleCategoryModel.data!.length,
                           scrollDirection: Axis.vertical,
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
@@ -836,7 +889,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     padding:
                                                         const EdgeInsets.only(
                                                             left: 10),
-                                                    child: Text(
+                                                    /*child: Text(
                                                       vehicleCategoryModel
                                                           .data![index].libelle
                                                           .toString(),
@@ -856,6 +909,23 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               : Colors.black,
                                                           fontWeight:
                                                               FontWeight.w500),
+                                                    ),*/
+                                                    child: Text(
+                                                      "Parceiro VEIDI",
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: TextStyle(
+                                                        color: controller
+                                                                    .selectedVehicle
+                                                                    .value ==
+                                                                vehicleCategoryModel
+                                                                    .data![
+                                                                        index]
+                                                                    .id
+                                                                    .toString()
+                                                            ? Colors.white
+                                                            : Colors.black,
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
@@ -947,7 +1017,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 txtColor: Colors.white, onPress: () async {
                               if (controller.selectedVehicle.value.isNotEmpty) {
                                 double cout = 0.0;
-
+                                //TO DO
                                 if (controller.distance.value >
                                     double.parse(controller.vehicleData!
                                         .minimumDeliveryChargesWithin!)) {
@@ -1008,13 +1078,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                           context, value, cout);
                                     } else {
                                       ShowToastDialog.showToast(
-                                          "Driver not available");
+                                          "Não há motoristas disponiveis");
                                     }
                                   }
                                 });
                               } else {
                                 ShowToastDialog.showToast(
-                                    "Please select Vehicle Type");
+                                    "Selecione o motorista");
                               }
                             }),
                           ),
