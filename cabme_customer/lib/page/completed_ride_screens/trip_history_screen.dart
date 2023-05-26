@@ -335,7 +335,7 @@ class TripHistoryScreen extends StatelessWidget {
                                             height: 36,
                                             width: 36,
                                           ),),*/
-                                      Padding(
+                                      /* Padding(
                                         padding:
                                             const EdgeInsets.only(left: 10),
                                         child: InkWell(
@@ -349,7 +349,7 @@ class TripHistoryScreen extends StatelessWidget {
                                               height: 36,
                                               width: 36,
                                             )),
-                                      ),
+                                      ),*/
                                     ],
                                   ),
                                   Padding(
@@ -389,7 +389,7 @@ class TripHistoryScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(15.0),
                       child: Column(
                         children: [
-                          Row(
+                          /* Row(
                             children: [
                               Expanded(
                                   child: Text(
@@ -496,6 +496,7 @@ class TripHistoryScreen extends StatelessWidget {
                               color: Colors.black.withOpacity(0.40),
                             ),
                           ),
+                          */
                           Row(
                             children: [
                               Expanded(
@@ -555,7 +556,7 @@ class TripHistoryScreen extends StatelessWidget {
                         padding: const EdgeInsets.only(left: 10),
                         child: ButtonThem.buildBorderButton(
                           context,
-                          title: 'Add Review'.tr,
+                          title: 'Avaliar', //'Add Review'.tr,
                           btnWidthRatio: 0.8,
                           btnHeight: 40,
                           btnColor: Colors.white,

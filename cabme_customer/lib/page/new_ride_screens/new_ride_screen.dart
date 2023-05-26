@@ -127,7 +127,7 @@ class NewRideScreen extends StatelessWidget {
                           Row(
                             children: [
                               const Text(
-                                'OTP : ',
+                                'Código : ',
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w800,
@@ -349,7 +349,7 @@ class NewRideScreen extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  Padding(
+                                  /*Padding(
                                     padding: const EdgeInsets.only(left: 10),
                                     child: InkWell(
                                         onTap: () {
@@ -361,7 +361,7 @@ class NewRideScreen extends StatelessWidget {
                                           height: 36,
                                           width: 36,
                                         )),
-                                  ),
+                                  ),*/
                                 ],
                               ),
                               Padding(
@@ -386,8 +386,8 @@ class NewRideScreen extends StatelessWidget {
                                 child: ButtonThem.buildButton(context,
                                     btnHeight: 40,
                                     title: data.statutPaiement == "yes"
-                                        ? "Paid"
-                                        : "Pay Now",
+                                        ? "Pago"
+                                        : "Pagar Agora",
                                     btnColor: data.statutPaiement == "yes"
                                         ? Colors.green
                                         : ConstantColors.primary,
@@ -411,7 +411,7 @@ class NewRideScreen extends StatelessWidget {
                             Expanded(
                                 child: ButtonThem.buildBorderButton(
                               context,
-                              title: 'Add Review'.tr,
+                              title: 'Avaliar', //'Add Review'.tr,
                               btnWidthRatio: 0.8,
                               btnHeight: 40,
                               btnColor: Colors.white,
@@ -437,7 +437,7 @@ class NewRideScreen extends StatelessWidget {
                       visible: data.statut == "completed",
                       child: ButtonThem.buildBorderButton(
                         context,
-                        title: 'Add Complaint'.tr,
+                        title: 'Enviar Feedback', //'Add Complaint'.tr,
                         btnHeight: 40,
                         btnColor: Colors.white,
                         txtColor: ConstantColors.primary,

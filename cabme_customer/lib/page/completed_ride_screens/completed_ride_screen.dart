@@ -32,7 +32,7 @@ class CompletedRideScreen extends StatelessWidget {
                     : controller.rideList.isEmpty
                         ? Constant.emptyView(
                             context,
-                            "You have not booked any trip.\n Please book a cab now",
+                            "Ainda não fez nenhum transporte.\n Peça um VEIDI agora",
                             true)
                         : ListView.builder(
                             itemCount: controller.rideList.length,

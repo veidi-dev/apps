@@ -24,7 +24,7 @@ class AddReviewScreen extends StatelessWidget {
               backgroundColor: ConstantColors.primary,
               elevation: 0,
               centerTitle: true,
-              title: const Text("Add review",
+              title: const Text("Avaliação",
                   style: TextStyle(color: Colors.white)),
               leading: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -136,7 +136,7 @@ class AddReviewScreen extends StatelessWidget {
                                 const Padding(
                                   padding: EdgeInsets.only(top: 16),
                                   child: Text(
-                                    'How is your trip?',
+                                    'Como foi o Transporte',
                                     style: TextStyle(
                                         fontSize: 18,
                                         color: Colors.black,
@@ -147,7 +147,7 @@ class AddReviewScreen extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.only(top: 8),
                                   child: Text(
-                                    'Your feedback  will help us improve \n driving experience better',
+                                    'O Seu feedback vai nos ajudar a melhorar \n a experiência VEIDI',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         color: ConstantColors.subTitleTextColor,
@@ -157,7 +157,7 @@ class AddReviewScreen extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.only(top: 20),
                                   child: Text(
-                                    'Rate for',
+                                    'Avaliação para',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         color: ConstantColors.subTitleTextColor,
@@ -198,7 +198,7 @@ class AddReviewScreen extends StatelessWidget {
                                   padding: const EdgeInsets.only(
                                       top: 30, left: 20, right: 20),
                                   child: TextFieldThem.boxBuildTextField(
-                                    hintText: 'Type comment....'.tr,
+                                    hintText: 'Escreva o seu comentário'.tr,
                                     controller: controller
                                         .reviewCommentController.value,
                                     textInputType: TextInputType.emailAddress,
@@ -218,7 +218,7 @@ class AddReviewScreen extends StatelessWidget {
                                       top: 20, left: 20, right: 20, bottom: 20),
                                   child: ButtonThem.buildButton(context,
                                       btnHeight: 45,
-                                      title: "Submit review",
+                                      title: "Submeta a sua avaliação",
                                       btnColor: ConstantColors.primary,
                                       txtColor: Colors.white,
                                       onPress: () async {
@@ -243,11 +243,11 @@ class AddReviewScreen extends StatelessWidget {
                                       if (value != null) {
                                         if (value == true) {
                                           ShowToastDialog.showToast(
-                                              "Review added successfully!");
+                                              "Avaliação adicionada com sucesso!");
                                           Get.back();
                                         } else {
                                           ShowToastDialog.showToast(
-                                              "Something want wrong");
+                                              "Alguma coisa correu mal. Tente mais tarde");
                                         }
                                       }
                                     });

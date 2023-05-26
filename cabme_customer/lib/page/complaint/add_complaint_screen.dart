@@ -26,7 +26,7 @@ class AddComplaintScreen extends StatelessWidget {
               backgroundColor: ConstantColors.primary,
               elevation: 0,
               centerTitle: true,
-              title: const Text("Add Complaint",
+              title: const Text("Envie o seu Feedback",
                   style: TextStyle(color: Colors.white)),
               leading: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -112,7 +112,7 @@ class AddComplaintScreen extends StatelessWidget {
                           const Padding(
                             padding: EdgeInsets.only(top: 16),
                             child: Text(
-                              'How is your trip?',
+                              'Como correu o transporte?',
                               style: TextStyle(
                                   fontSize: 18,
                                   color: Colors.black,
@@ -123,7 +123,7 @@ class AddComplaintScreen extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(top: 8),
                             child: Text(
-                              'Your complaint  will help us improve \n driving experience better',
+                              'O seu feedback vai nos ajudar \n a melhorar a experiência VEIDI',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: ConstantColors.subTitleTextColor,
@@ -133,7 +133,7 @@ class AddComplaintScreen extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(top: 20),
                             child: Text(
-                              'Complaint for',
+                              'Comentário sobre',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: ConstantColors.subTitleTextColor,
@@ -159,7 +159,7 @@ class AddComplaintScreen extends StatelessWidget {
                                   padding: const EdgeInsets.only(
                                       top: 30, left: 20, right: 20),
                                   child: TextFieldThem.boxBuildTextField(
-                                    hintText: 'Type title....'.tr,
+                                    hintText: 'Assunto'.tr,
                                     controller: _complaintTitleController,
                                     textInputType: TextInputType.emailAddress,
                                     contentPadding: EdgeInsets.zero,
@@ -167,7 +167,7 @@ class AddComplaintScreen extends StatelessWidget {
                                       if (value!.isNotEmpty) {
                                         return null;
                                       } else {
-                                        return 'Title is required'.tr;
+                                        return 'Obrigatório'.tr;
                                       }
                                     },
                                   ),
@@ -176,7 +176,7 @@ class AddComplaintScreen extends StatelessWidget {
                                   padding: const EdgeInsets.only(
                                       top: 30, left: 20, right: 20),
                                   child: TextFieldThem.boxBuildTextField(
-                                    hintText: 'Type discription....'.tr,
+                                    hintText: 'Escreva o seu comentário'.tr,
                                     controller: _complaintDiscriptionController,
                                     textInputType: TextInputType.emailAddress,
                                     maxLine: 5,
@@ -185,7 +185,7 @@ class AddComplaintScreen extends StatelessWidget {
                                       if (value!.isNotEmpty) {
                                         return null;
                                       } else {
-                                        return 'Discription is required'.tr;
+                                        return 'obrigatório'.tr;
                                       }
                                     },
                                   ),
@@ -198,7 +198,7 @@ class AddComplaintScreen extends StatelessWidget {
                                 top: 20, left: 20, right: 20, bottom: 20),
                             child: ButtonThem.buildButton(context,
                                 btnHeight: 45,
-                                title: "Submit complaint",
+                                title: "Enviar Feedback",
                                 btnColor: ConstantColors.primary,
                                 txtColor: Colors.white, onPress: () async {
                               if (_formKey.currentState!.validate()) {
@@ -222,11 +222,11 @@ class AddComplaintScreen extends StatelessWidget {
                                   if (value != null) {
                                     if (value == true) {
                                       ShowToastDialog.showToast(
-                                          "Complaint added successfully!");
+                                          "Obrigado! O Seu feedback foi enviado com sucesso");
                                       Get.back();
                                     } else {
                                       ShowToastDialog.showToast(
-                                          "Something want wrong");
+                                          "Algo correu mal, tente mais tarde");
                                     }
                                   }
                                 });

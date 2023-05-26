@@ -66,7 +66,7 @@ class DashBoardController extends GetxController {
     // DrawerItem('canceled'.tr, Icons.cancel_outlined),
     //DrawerItem('rent_a_vehicle'.tr, Icons.car_rental),
     //DrawerItem('rented_vehicle'.tr, Icons.car_rental),
-    DrawerItem('promo_code'.tr, Icons.discount),
+    //DrawerItem('promo_code'.tr, Icons.discount),
     DrawerItem('my_wallet'.tr, Icons.account_balance_wallet_outlined),
     DrawerItem('my_profile'.tr, Icons.person_outline),
     DrawerItem('change_language'.tr, Icons.language),
@@ -74,7 +74,7 @@ class DashBoardController extends GetxController {
     DrawerItem('privacy_policy'.tr, Icons.privacy_tip),
     DrawerItem('contact_us'.tr, Icons.support_agent),
     //DrawerItem('rate_business'.tr, Icons.rate_review_outlined),
-    DrawerItem('sign_out'.tr, Icons.logout),
+    //  DrawerItem('sign_out'.tr, Icons.logout),
   ];
 
   getDrawerItemWidget(int pos) {
@@ -98,22 +98,24 @@ class DashBoardController extends GetxController {
       //  return RentVehicleScreen();
       //case 4:
       // return const RentedVehicleScreen();
+      //case 2:
+      // return const CouponCodeScreen();
       case 2:
-        return const CouponCodeScreen();
-      case 3:
         return WalletScreen();
-      case 4:
+      case 3:
         return MyProfileScreen();
-      case 5:
+      case 4:
         return const LocalizationScreens(
           intentType: "dashBoard",
         );
-      case 6:
+      case 5:
         return const TermsOfServiceScreen();
-      case 7:
+      case 6:
         return const PrivacyPolicyScreen();
-      case 8:
+      case 7:
         return const ContactUsScreen();
+      // case 8:
+      //  return LoginScreen();
 
       default:
         return const Text("Error");

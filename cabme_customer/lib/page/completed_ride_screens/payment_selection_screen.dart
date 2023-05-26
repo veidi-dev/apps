@@ -342,7 +342,7 @@ class PaymentSelectionScreen extends StatelessWidget {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                "Tip to driver",
+                                "Adicionar gorjeta",
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                     letterSpacing: 1.0,
