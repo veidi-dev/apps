@@ -1233,7 +1233,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Expanded(
                                 child: buildDetails(
                                     title: controller.duration.value,
-                                    value: 'Duração Estimada')),
+                                    value: 'Até chegar a si')),
                             const SizedBox(
                               width: 10,
                             ),
@@ -1424,7 +1424,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             return CustomDialogBox(
                                               title: "",
                                               descriptions:
-                                                  "Your booking has been sent successfully",
+                                                  "O seu pedido foi feito enviado com sucesso. Fique atento às suas marcações",
                                               onPress: () {
                                                 Get.back();
                                               },
@@ -1764,7 +1764,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ? ConstantColors.primary
                                           : Colors.transparent)),
                               controlAffinity: ListTileControlAffinity.trailing,
-                              value: "Associar cartão",
+                              value: "Cartão",
                               groupValue: controller.paymentMethodType.value,
                               onChanged: (String? value) {
                                 controller.stripe = true.obs;
