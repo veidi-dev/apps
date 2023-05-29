@@ -114,8 +114,8 @@ class DashBoardController extends GetxController {
         return const PrivacyPolicyScreen();
       case 7:
         return const ContactUsScreen();
-      // case 8:
-      //  return LoginScreen();
+      case 8:
+        return LoginScreen();
 
       default:
         return const Text("Error");

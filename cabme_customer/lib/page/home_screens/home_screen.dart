@@ -1321,7 +1321,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         if (controller.distance.value >
                                             double.parse(value.data![i]
                                                 .minimumDeliveryChargesWithin!)) {
-                                          tripPrice.add(50.0);
+                                          tripPrice.add(65.0);
                                           /* tripPrice.add((controller
                                                       .distance.value *
                                                   double.parse(value.data![i]
@@ -1330,7 +1330,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               .toStringAsFixed(int.parse(
                                                   Constant.decimal ?? "2")));*/
                                         } else {
-                                          tripPrice.add(50.0);
+                                          tripPrice.add(65.0);
                                           /*tripPrice.add(double.parse(value
                                                   .data![i]
                                                   .minimumDeliveryCharges!)
@@ -1370,7 +1370,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       destinationLatLong!.latitude.toString(),
                                   'lng2':
                                       destinationLatLong!.longitude.toString(),
-                                  'cout': "50", //tripPrice.toString(),
+                                  'cout': "65", //tripPrice.toString(),
                                   'distance': controller.distance.toString(),
                                   'distance_unit':
                                       Constant.distanceUnit.toString(),
@@ -1413,7 +1413,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       departureLatLong = null;
                                       destinationLatLong = null;
                                       passengerController.clear();
-                                      tripPrice = 50.0;
+                                      tripPrice = 65.0;
                                       _markers.clear();
                                       controller.clearData();
                                       getDirections();

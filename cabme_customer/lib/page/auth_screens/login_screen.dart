@@ -173,7 +173,7 @@ class LoginScreen extends StatelessWidget {
                                 padding: const EdgeInsets.only(top: 40),
                                 child: ButtonThem.buildBorderButton(
                                   context,
-                                  title: 'Entrar com Telémovel'.tr,
+                                  title: 'Entrar com Telemóvel'.tr,
                                   btnHeight: 50,
                                   btnColor: Colors.white,
                                   txtColor: ConstantColors.primary,

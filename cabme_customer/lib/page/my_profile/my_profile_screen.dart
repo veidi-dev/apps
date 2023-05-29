@@ -143,7 +143,7 @@ class MyProfileScreen extends StatelessWidget {
                         children: [
                           buildShowDetails(
                             subtitle: myProfileController.name.toString(),
-                            title: "First Name",
+                            title: "Nome",
                             iconData: Icons.person_outline,
                             isEditIcon: true,
                             onPress: () {
@@ -185,11 +185,11 @@ class MyProfileScreen extends StatelessWidget {
                                     });
                                   } else {
                                     ShowToastDialog.showToast(
-                                        "Please Enter Name");
+                                        "Preencha o seu nome");
                                   }
                                 },
                                 controller: fullNameController,
-                                title: "First Name",
+                                title: "Nome",
                                 iconData: Icons.person_outline,
                                 validators: (String? name) {
                                   return null;
@@ -199,7 +199,7 @@ class MyProfileScreen extends StatelessWidget {
                           ),
                           buildShowDetails(
                             subtitle: myProfileController.lastName.toString(),
-                            title: "Last Name",
+                            title: "Último nome",
                             iconData: Icons.person_outline,
                             isEditIcon: true,
                             onPress: () {
@@ -241,11 +241,11 @@ class MyProfileScreen extends StatelessWidget {
                                     });
                                   } else {
                                     ShowToastDialog.showToast(
-                                        "Please Enter Name");
+                                        "Preencha o seu nome");
                                   }
                                 },
                                 controller: lastNameController,
-                                title: "Last Name",
+                                title: "Apelido",
                                 iconData: Icons.person_outline,
                                 validators: (String? name) {
                                   return null;
@@ -269,7 +269,7 @@ class MyProfileScreen extends StatelessWidget {
                           ),
                           buildShowDetails(
                             title: "Password",
-                            subtitle: "change password",
+                            subtitle: "Mudar Password",
                             iconData: Icons.lock_outline,
                             isEditIcon: true,
                             onPress: () {
@@ -280,8 +280,8 @@ class MyProfileScreen extends StatelessWidget {
                             },
                           ),
                           buildShowDetails(
-                            title: 'Delete',
-                            subtitle: 'Delete Account',
+                            title: 'Apagar',
+                            subtitle: 'Apagar a Conta',
                             isEditIcon: false,
                             iconData: Icons.delete,
                             onPress: () async {
@@ -291,7 +291,7 @@ class MyProfileScreen extends StatelessWidget {
                                   builder: (context) {
                                     return AlertDialog(
                                       title: const Text(
-                                        'Are you sure you want to delete account?',
+                                        'Tem a certeza que pretende eleminar a conta?',
                                       ),
                                       actions: [
                                         Row(
@@ -299,7 +299,7 @@ class MyProfileScreen extends StatelessWidget {
                                             Expanded(
                                               child: ButtonThem.buildButton(
                                                 context,
-                                                title: 'No',
+                                                title: 'Não',
                                                 btnColor: Colors.red,
                                                 txtColor: Colors.white,
                                                 onPress: () {
@@ -313,7 +313,7 @@ class MyProfileScreen extends StatelessWidget {
                                             Expanded(
                                               child: ButtonThem.buildButton(
                                                 context,
-                                                title: 'Yes',
+                                                title: 'Sim',
                                                 btnColor:
                                                     ConstantColors.primary,
                                                 txtColor: Colors.white,
