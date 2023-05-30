@@ -514,7 +514,7 @@ class _RouteViewScreenState extends State<RouteViewScreen> {
                                                 width: 36,
                                               )),
                                         ),
-                                        Padding(
+                                        /*Padding(
                                           padding:
                                               const EdgeInsets.only(left: 10),
                                           child: InkWell(
@@ -528,7 +528,7 @@ class _RouteViewScreenState extends State<RouteViewScreen> {
                                                 height: 36,
                                                 width: 36,
                                               )),
-                                        ),
+                                        ),*/
                                         Visibility(
                                           visible: rideData!.statut == "on ride"
                                               ? true
@@ -791,14 +791,14 @@ class _RouteViewScreenState extends State<RouteViewScreen> {
                     const Padding(
                       padding: EdgeInsets.symmetric(vertical: 10),
                       child: Text(
-                        "Cancel Trip",
+                        "Cancelar a Viagem",
                         style: TextStyle(fontSize: 18, color: Colors.black),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 10),
                       child: Text(
-                        "Write a reason for trip cancellation",
+                        "Escreva o motivo para cancelar o transporte",
                         style: TextStyle(color: Colors.black.withOpacity(0.50)),
                       ),
                     ),
@@ -842,7 +842,7 @@ class _RouteViewScreenState extends State<RouteViewScreen> {
                                       builder: (context) {
                                         return CustomAlertDialog(
                                           title:
-                                              "Do you want to cancel this booking?",
+                                              "Pretende cancelar este Transporte?",
                                           onPressNegative: () {
                                             Get.back();
                                           },
@@ -873,10 +873,9 @@ class _RouteViewScreenState extends State<RouteViewScreen> {
                                                     builder:
                                                         (BuildContext context) {
                                                       return CustomDialogBox(
-                                                        title:
-                                                            "Cancel Successfully",
+                                                        title: "Cancelamento",
                                                         descriptions:
-                                                            "Ride Successfully cancel.",
+                                                            "Transporte Cancelado com Sucesso",
                                                         onPress: () {
                                                           Get.back();
                                                           controllerDashBoard
@@ -894,7 +893,7 @@ class _RouteViewScreenState extends State<RouteViewScreen> {
                                     );
                                   } else {
                                     ShowToastDialog.showToast(
-                                        "Please enter a reason");
+                                        "Escreva o motivo");
                                   }
                                 },
                               ),
