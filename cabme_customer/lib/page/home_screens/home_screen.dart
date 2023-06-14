@@ -1,5 +1,16 @@
+import 'dart:convert';
+import 'dart:async';
+
+import 'dart:io';
+
 import 'package:VEIDI/constant/constant.dart';
 import 'package:VEIDI/constant/show_toast_dialog.dart';
+
+import 'package:VEIDI/service/api.dart';
+import 'package:VEIDI/utils/Preferences.dart';
+import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
+
 import 'package:VEIDI/controller/home_controller.dart';
 import 'package:VEIDI/model/driver_model.dart';
 import 'package:VEIDI/model/vehicle_category_model.dart';
@@ -7,13 +18,13 @@ import 'package:VEIDI/themes/button_them.dart';
 import 'package:VEIDI/themes/constant_colors.dart';
 import 'package:VEIDI/themes/custom_dialog_box.dart';
 import 'package:VEIDI/themes/text_field_them.dart';
-import 'package:VEIDI/utils/Preferences.dart';
+
 import 'package:VEIDI/widget/StarRating.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:geocoding/geocoding.dart' as get_cord_address;
-import 'package:get/get.dart';
+
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
@@ -32,6 +43,38 @@ class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController destinationController = TextEditingController();
 
   final controller = Get.put(HomeController());
+  RxDouble walletAmount = 0.0.obs;
+
+  Future<dynamic> getAmount() async {
+    try {
+      final response = await http.get(
+          Uri.parse(
+              "${API.wallet}?id_user=${Preferences.getInt(Preferences.userId)}&user_cat=user_app"),
+          headers: API.header);
+      Map<String, dynamic> responseBody = json.decode(response.body);
+
+      if (response.statusCode == 200 && responseBody['success'] == "success") {
+        walletAmount.value = responseBody['data']['amount'] != null
+            ? double.parse(responseBody['data']['amount'].toString())
+            : 0;
+      } else if (response.statusCode == 200 &&
+          responseBody['success'] == "failed") {
+      } else {
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
+        throw Exception('Não foi possível carregar informações');
+      }
+    } on TimeoutException catch (e) {
+      ShowToastDialog.showToast(e.message.toString());
+    } on SocketException catch (e) {
+      ShowToastDialog.showToast(e.message.toString());
+    } on Error catch (e) {
+      ShowToastDialog.showToast(e.toString());
+    } catch (e) {
+      ShowToastDialog.closeLoader();
+      ShowToastDialog.showToast(e.toString());
+    }
+    return null;
+  }
 
   GoogleMapController? _controller;
   final Location currentLocation = Location();
@@ -51,6 +94,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     setIcons();
+    getAmount();
+
     super.initState();
   }
 
@@ -1358,6 +1403,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   "Select Method") {
                                 ShowToastDialog.showToast(
                                     "Selecione o meio de pagamento");
+                              } else if (walletAmount < 65.0) {
+                                ShowToastDialog.showToast(
+                                    "Não tem dinheiro suficiente na conta. Adicione mais fundos!");
                               } else {
                                 Map<String, String> bodyParams = {
                                   'user_id':

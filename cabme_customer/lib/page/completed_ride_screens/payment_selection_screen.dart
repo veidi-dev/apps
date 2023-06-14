@@ -96,7 +96,7 @@ class PaymentSelectionScreen extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               child: Column(
                 children: [
-                  Container(
+                  /*Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
                       boxShadow: <BoxShadow>[
@@ -125,7 +125,7 @@ class PaymentSelectionScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   const Text(
-                                    "Promo Code",
+                                    "Código Promocional",
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.w900),
@@ -177,7 +177,7 @@ class PaymentSelectionScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                  ),
+                  ),*/
                   Padding(
                     padding: const EdgeInsets.only(top: 15.0),
                     child: Container(
@@ -226,7 +226,7 @@ class PaymentSelectionScreen extends StatelessWidget {
                               children: [
                                 Expanded(
                                     child: Text(
-                                  "Discount",
+                                  "Desconto",
                                   style: TextStyle(
                                       letterSpacing: 1.0,
                                       color: ConstantColors.subTitleTextColor,
@@ -1510,7 +1510,7 @@ class PaymentSelectionScreen extends StatelessWidget {
                               .then((value) {
                             if (value != null) {
                               ShowToastDialog.showToast(
-                                  "Payment successfully completed");
+                                  "Pagamento executado com sucesso");
                               Get.back(result: true);
                               Get.back();
                             } else {
@@ -1519,7 +1519,7 @@ class PaymentSelectionScreen extends StatelessWidget {
                           });
                         } else {
                           ShowToastDialog.showToast(
-                              "Insufficient wallet balance");
+                              "Não tem dinheiro suficiente");
                         }
                       } else if (controller.selectedRadioTile.value == "Cash") {
                         Get.back();
@@ -1543,7 +1543,7 @@ class PaymentSelectionScreen extends StatelessWidget {
                         controller.cashPaymentRequest(bodyParams).then((value) {
                           if (value != null) {
                             ShowToastDialog.showToast(
-                                "Payment successfully completed");
+                                "Pagamento executado com sucesso");
                             Get.back(result: true);
                             Get.back();
                           } else {
@@ -1596,7 +1596,7 @@ class PaymentSelectionScreen extends StatelessWidget {
                       }
                     },
                     child: Text(
-                      "Proceed to Pay".toUpperCase(),
+                      "Pagar Viagem".toUpperCase(),
                       style: const TextStyle(
                           letterSpacing: 1.5,
                           color: Colors.white,

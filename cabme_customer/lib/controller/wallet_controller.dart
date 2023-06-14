@@ -71,13 +71,11 @@ class WalletController extends GetxController {
           await http.get(Uri.parse(API.getPaymentMethod), headers: API.header);
 
       Map<String, dynamic> responseBody = json.decode(response.body);
-      print("eu estou no wallet_controller");
       devlo.log(responseBody.toString());
       if (response.statusCode == 200 && responseBody['success'] == "success") {
         isLoading.value = false;
         PaymentMethodModel model = PaymentMethodModel.fromJson(responseBody);
         paymentMethodList.value = model.data!;
-        print(responseBody);
       } else if (response.statusCode == 200 &&
           responseBody['success'] == "failed") {
         paymentMethodList.clear();
@@ -376,10 +374,10 @@ class WalletController extends GetxController {
         'amount': ((double.parse(amount) * 100).round()).toString(),
         'currency': "EUR",
         'payment_method_types[]': 'card',
-        "description": "${Preferences.getInt(Preferences.userId)} Wallet Topup",
-        "shipping[name]":
-            "${Preferences.getInt(Preferences.userId)} ${Preferences.getInt(Preferences.userId)}",
-        "shipping[address][line1]": "teste",
+        "description":
+            "${Preferences.getInt(Preferences.userId)} - Wallet Topup",
+        "shipping[name]": "UserID: ${Preferences.getInt(Preferences.userId)} ",
+        "shipping[address][line1]": "${Preferences.getInt(Preferences.user)}",
         "shipping[address][postal_code]": "teste",
         "shipping[address][city]": "teste",
         "shipping[address][state]": "teste",

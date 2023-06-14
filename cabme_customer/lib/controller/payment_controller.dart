@@ -65,8 +65,7 @@ class PaymentController extends GetxController {
           responseBody['success'] == "Failed") {
         coupanCodeList.clear();
       } else {
-        ShowToastDialog.showToast(
-            'Algo correu mal. Tente mais tarde');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
         throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
@@ -87,7 +86,8 @@ class PaymentController extends GetxController {
     if (argumentData != null) {
       data.value = argumentData["rideData"];
       selectedRadioTile.value = data.value.payment.toString();
-      subTotalAmount.value = double.parse(data.value.montant.toString());
+      subTotalAmount.value =
+          52.845; //double.parse(data.value.montant.toString());
       taxAmount.value = double.parse(Constant.taxValue ?? "0.0");
 
       if (selectedRadioTile.value == "Wallet") {
@@ -134,8 +134,7 @@ class PaymentController extends GetxController {
       } else if (response.statusCode == 200 &&
           responseBody['success'] == "Failed") {
       } else {
-        ShowToastDialog.showToast(
-            'Algo correu mal. Tente mais tarde');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
         throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
@@ -173,8 +172,7 @@ class PaymentController extends GetxController {
       } else if (response.statusCode == 200 &&
           responseBody['success'] == "Failed") {
       } else {
-        ShowToastDialog.showToast(
-            'Algo correu mal. Tente mais tarde');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
         throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
@@ -251,8 +249,7 @@ class PaymentController extends GetxController {
         ShowToastDialog.showToast(responseBody['error']);
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Algo correu mal. Tente mais tarde');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
         throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
@@ -290,8 +287,7 @@ class PaymentController extends GetxController {
         ShowToastDialog.showToast(responseBody['error']);
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Algo correu mal. Tente mais tarde');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
         throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
@@ -338,8 +334,7 @@ class PaymentController extends GetxController {
         ShowToastDialog.showToast(responseBody['error']);
       } else {
         ShowToastDialog.closeLoader();
-        ShowToastDialog.showToast(
-            'Algo correu mal. Tente mais tarde');
+        ShowToastDialog.showToast('Algo correu mal. Tente mais tarde');
         throw Exception('Não foi possível carregar informações');
       }
     } on TimeoutException catch (e) {
